@@ -7,7 +7,7 @@
     &__image {
       position: absolute;
       width: calc-size($view-width, 90, "%");
-      top: 10%;
+      top: 5%;
       right: 0;
       &--1{
           position: absolute;
@@ -18,7 +18,7 @@
     }
     &__SVG {
       position: absolute;
-      top: calc-size($view-height, 87, "%");
+      top: calc-size($view-height,150, "%");
       right: calc-size($view-width, 23, "%");
       width: calc-size($view-width, 90, "%");
       height: calc-size($view-height, 272, "%");
