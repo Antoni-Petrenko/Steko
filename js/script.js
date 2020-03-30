@@ -1,4 +1,5 @@
 const page = {
+  preloader: document.querySelector(".preloader"),
   firstSsectionImg: document.querySelector(".first-section__image-box--image"),
   footerSection: document.querySelector(".footer__content-box"),
   sections: [
@@ -8,7 +9,12 @@ const page = {
     document.querySelector(".fifth-section"),
     document.querySelector(".sixth-section")
   ],
-  svgRects: document.querySelectorAll("[class*='__clone__SVG']")
+  svgRects: document.querySelectorAll("[class*='__clone__SVG']"),
+  preloaderAnimation:anime.timeline({
+    easing: 'easeOutExpo',
+    duration: 1000
+  })
+
 };
 
 
@@ -43,6 +49,21 @@ const addObserver = (targetElement, callback, isDisconect) => {
 
 
 document.addEventListener('DOMContentLoaded', () => {
+  page.preloaderAnimation.add({
+    targets:page.preloader.children[0],
+    translateX: "-50%",
+    translateY:"-50%"
+  }).add({
+    targets:page.preloader.children[0],
+    height: "100%",
+  }).add({
+    targets: page.preloader.children[1],
+    easing: 'easeOutExpo',
+    duration: 1000,
+    opacity:1,
+    translateX:["-50%", "-50%"],
+    translateY:["-42%","-50%"]
+  });
   window.addEventListener("scroll", () => (page.firstSsectionImg.style.transform = `scale(${1.2 - window.pageYOffset / 2000})`));
   window.addEventListener("resize", e => (e.target.requestIdleCallback(() => page.sections.forEach(setCloneSectionSize))));
 
@@ -65,7 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
     anime({
       targets: animationTarget,
       easing: 'easeOutExpo',
-      duration: 1500,
+      duration: 3500,
       delay: `1${index*2}00`,
       opacity: [0, 1],
       translateY: [25, 0],
@@ -74,4 +95,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
 })
 
-window.onload = page.sections.forEach(setCloneSectionSize);
+window.onload = () => {
+ page.preloaderAnimation.add({
+    targets:page.preloader,
+    easing: 'easeOutExpo',
+    duration: 2000,
+    opacity:0
+  })
+  page.preloaderAnimation.finished.then((el)=>{
+    page.preloader.remove()
+  });
+  page.sections.forEach(setCloneSectionSize);
+}
