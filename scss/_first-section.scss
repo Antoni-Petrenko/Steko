@@ -1,0 +1,33 @@
+
+
+.first-section {
+  min-height: 100vh;
+  &__image-box {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: calc-size($view-height, 473, "vh");
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: -1;
+    &--image {
+      width: 100%;
+      transform: scale(1.2);
+      transition: 0.5s ease-out;
+    }
+  }
+
+  &__content-box {
+    width: calc-size($view-width, 342, "%");
+    margin-left: calc-size($view-width, 33, "%");
+    margin-top: calc-size($view-width, -70, "%");
+    z-index: 1;
+  }
+  &__heading.heading {
+    display: block;
+    color: #33856c;
+    padding-bottom: calc-size($view-width, 50, "%");
+  }
+  
+}

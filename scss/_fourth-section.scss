@@ -1,0 +1,52 @@
+.fourth-section {
+  position: relative;
+ 
+  &__clone {
+    position: absolute;
+    width: 100%;
+    &__image {
+      position: absolute;
+      top: calc-size(100%, 12px, "%");
+      left: 0;
+      width: calc-size($view-width, 90, "%");
+    }
+    &__SVG {
+      position: absolute;
+      top: calc-size($view-height, 94, "%");
+      left: 0;
+      width: calc-size($view-width, 124, "%");
+      height: calc-size($view-height, 247, "%");
+      
+      rect {
+        fill: #d7d7d7;
+      }
+    }
+  }
+  &__content-box {
+    width: calc-size($view-width, 280, "%");
+    margin-left: calc-size($view-width, 97, "%");
+    padding-top: calc-size(885, 111, "%");
+    padding-bottom: calc-size(885, 75, "%");
+  }
+  &__heading.heading {
+    line-height: 4rem;
+    & span:nth-of-type(1) {
+      font-size: 1.9rem;
+      font-weight: 500;
+    }
+    & span:nth-of-type(2) {
+      color: #127e5d;
+      font-size: 3rem;
+    }
+    & span:nth-of-type(3) {
+      font-weight: 500;
+      font-size: 2.7rem;
+    }
+    & span:nth-of-type(4) {
+      display: inline-block;
+      padding: 2.5rem 0 6.5rem 0;
+      font-size: 2.3rem;
+      font-weight: bold;
+    }
+  }
+}

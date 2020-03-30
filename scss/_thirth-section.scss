@@ -1,0 +1,49 @@
+.third-section {
+  position: relative;
+  
+  &__content-box {
+    width: calc-size($view-width, 276, "%");
+    margin-left: calc-size($view-width, 33, "%");
+    padding-top: calc-size(100%, 112px, "%");
+    padding-bottom: calc-size(100%, 98px, "%");
+    z-index: 5;
+  }
+  &__heading.heading {
+    color: #535659;
+    font-size: 3rem;
+    line-height: 5rem;
+
+    & span:nth-of-type(1) {
+      color: #127e5d;
+      font-size: 3rem;
+    }
+    & span:nth-of-type(2) {
+      font-size: 2.3rem;
+      margin-top: 3.7rem;
+      margin-bottom: 6.2rem;
+    }
+  }
+  &__clone {
+      position: absolute;
+      width: 100%;
+    &__image {
+      position: absolute;
+      top: calc-size(100%, 132px, "%");
+      right: 0;
+      width: calc-size($view-width, 176, "%");
+      box-shadow: 0px 0px 45px 5px rgba(#2d3d48, 0.2);
+      z-index: 2;
+    }
+    &__SVG {
+      position: absolute;
+      top: calc-size($view-height, 69, "%");
+      right: 0;
+      width: calc-size($view-width, 106, "%");
+      height: calc-size($view-height, 210, "%");
+      z-index: 1;
+      rect {
+        fill: #23604d;
+      }
+    }
+  }
+}

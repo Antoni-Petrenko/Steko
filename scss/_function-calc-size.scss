@@ -1,0 +1,12 @@
+$view-width: 414;
+$view-height: 737;
+
+@function calc-size($view-direction, $design-size, $units) {
+  $percents: round(($design-size / $view-direction) * 100);
+  @if ($units == "vh") {
+    @return $percents * 1vh;
+  }
+  @if ($units == "%") {
+    @return $percents * 1%;
+  }
+}

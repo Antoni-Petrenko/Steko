@@ -1,0 +1,52 @@
+.fifth-section {
+  position: relative;
+
+  &__clone {
+    position: absolute;
+    width: 100%;
+    &__image {
+      position: absolute;
+      width: calc-size($view-width, 90, "%");
+      top: 10%;
+      right: 0;
+      &--1{
+          position: absolute;
+          width:calc-size($view-width, 108, "%") ;
+          top: calc-size($view-height,111, "%");
+          right:0;
+      }
+    }
+    &__SVG {
+      position: absolute;
+      top: calc-size($view-height, 87, "%");
+      right: calc-size($view-width, 23, "%");
+      width: calc-size($view-width, 90, "%");
+      height: calc-size($view-height, 272, "%");
+      rect {
+        fill: #23604D;
+      }
+    }
+  }
+  &__content-box {
+    width: calc-size($view-width, 276, "%");
+    padding-top: calc-size(548, 119, "%");
+    padding-bottom: calc-size($view-height, 92, "%");
+    margin-left: calc-size($view-width, 33, "%");
+  }
+  &__heading.heading {
+    font-size: 2.7rem;
+    font-weight: 500;
+    line-height: 3.6rem;
+    & span:nth-of-type(1) {
+      color: #127e5d;
+      display: inline-block;
+      padding-top: 1.6rem;
+    }
+    & span:nth-of-type(2) {
+      color: #535659;
+      display: inline-block;
+      margin-top: 2.8rem;
+      margin-bottom: 6.3rem;
+    }
+  }
+}

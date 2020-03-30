@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="283" height="54" viewBox="0 0 283 54">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #11a87a;
+        font-size: 44px;
+        font-family: Montserrat-Bold, Montserrat;
+        font-weight: 700;
+      }
+
+      .cls-2 {
+        font-family: Montserrat-SemiBold, Montserrat;
+        font-weight: 600;
+      }
+    </style>
+  </defs>
+  <text id="Steko_IDEAL" data-name="Steko IDEAL" class="cls-1" transform="translate(0 43)"><tspan x="0" y="0">Steko </tspan><tspan class="cls-2" y="0">IDEAL</tspan></text>
+</svg>

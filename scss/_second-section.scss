@@ -1,0 +1,44 @@
+
+
+.second-section {
+  position: relative;
+  
+  &__content-box {
+    width: calc-size($view-width, 241, "%");
+    margin-left: calc-size($view-width, 148, "%");
+    padding-top: calc-size($view-height, 86, "%");
+    padding-bottom: calc-size($view-height, 107, "%");
+  }
+  &__heading.heading {
+    color: #535659;
+    line-height: 5.5rem;
+    & span:nth-of-type(1) {
+      color: #127e5d;
+    }
+    & span:nth-of-type(2) {
+      font-size: 2.3rem;
+      margin-top: 5.1rem;
+      margin-bottom: 7.3rem;
+    }
+  }
+  &__clone {
+    position: absolute;
+    width: 100%;
+    &__image {
+      position: absolute;
+      top: calc-size($view-height, 152, "%");
+      left: calc-size($view-width, 12, "%");
+      width: calc-size($view-width, 122, "%");
+    }
+    &__SVG {
+      position: absolute;
+      top: calc-size($view-height, 115, "%");
+      left: 0;
+      width: calc-size($view-width, 86, "%");
+      height: calc-size($view-height, 272, "%");
+      rect {
+        fill: #23604d;
+      }
+    }
+  }
+}

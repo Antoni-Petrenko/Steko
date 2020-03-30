@@ -1,0 +1,54 @@
+.sixth-section {
+    position: relative;
+    background-image: url("../img/mobile/background/2076747-02@2x.png");
+    background-position: center;
+    background-size: cover;
+    z-index: -2;
+    &__clone {
+        position: absolute;
+        width: 100%;
+        overflow-x: hidden;
+        overflow-y: hidden;
+        &__image {
+            position: absolute;
+            right: 0;
+            width: calc-size($view-width, 336, "%");
+            height: calc-size($view-height, 168, "%");
+            bottom: calc-size($view-height, 73, "%");
+        }
+        &__image--1 {
+            position: absolute;
+            bottom: -10%;
+            right: -20%;
+            width: calc-size($view-width, 386, "%");
+            height: calc-size($view-height, 360, "%");
+        }
+        &__SVG {
+            position: absolute;
+            width: calc-size($view-width, 90, "%");
+            height: calc-size($view-height, 272, "%");
+            top: calc-size($view-height, -65, "%");
+            left: 0;
+            & rect {
+                fill: #23604D;
+            }
+        }
+    }
+    &__content-box {
+        z-index: 2;
+        width: calc-size($view-width, 340, "%");
+        margin-left: calc-size($view-width, 33, "%");
+        padding-top: calc-size($view-width, 99, "%");
+    }
+    &__heading.heading {
+        color: white;
+        font-size: 3.6rem;
+        display: inline-block;
+        margin-bottom: 5.4rem
+    }
+    & .paragraph {
+        font-size: 1.6rem;
+        color: white;
+        line-height: 2.7rem;
+    }
+}
