@@ -25,7 +25,6 @@ let isScrollAnimationON=true;
 const scroll = e => {
   e.preventDefault();
   if(isScrollAnimationON){
-    console.log("ok")
     isScrollAnimationON=false
   anime.timeline({
     targets:page.headerBackground,
@@ -116,16 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
     center: true
   });
   page.svgRects.forEach((observerTarget) => addObserver(observerTarget, animationTarget => {
-    anime.timeline({
-      targets: animationTarget,
-      easing: 'easeOutExpo',
-      duration: 1000
-    }).add({
-      width: '100%',
-      height: "2%"
-    }).add({
-      height: "100%"
-    })
+    animationTarget.classList.add("fadeIn")
   }))
   addObserver(page.footerSection, (animationTarget, index) => {
     anime({
@@ -141,6 +131,7 @@ document.addEventListener('DOMContentLoaded', () => {
 })
 
 window.onload = () => {
+  page.sections.forEach(setCloneSectionSize);
   page.preloaderAnimation.add({
     targets: page.preloader,
     easing: 'easeOutExpo',
@@ -150,5 +141,5 @@ window.onload = () => {
   page.preloaderAnimation.finished.then((el) => {
     page.preloader.remove()
   });
-  page.sections.forEach(setCloneSectionSize);
+  
 }
