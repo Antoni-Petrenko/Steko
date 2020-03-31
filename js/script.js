@@ -140,6 +140,6 @@ window.onload = () => {
   })
   page.preloaderAnimation.finished.then((el) => {
     page.preloader.remove()
-  });
-  
+  }); 
 }
+
