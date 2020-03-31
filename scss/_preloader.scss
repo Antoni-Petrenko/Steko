@@ -5,7 +5,7 @@
     left: 0;
     right: 0;
     background-color: white;
-    z-index: 1000;
+    z-index: 3000;
     overflow: hidden;
     &__background {
         position: absolute;
@@ -25,7 +25,7 @@
         transform: translateX(-50%);
         transform: translateY(-55%);
         opacity: 0;
-        z-index: 2000;
+        z-index: 4000;
         & img{
             width: 100%
         }

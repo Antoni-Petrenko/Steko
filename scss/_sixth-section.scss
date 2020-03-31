@@ -4,6 +4,7 @@
     background-position: center;
     background-size: cover;
     z-index: -2;
+    margin: 10rem 0 0 0;
     &__clone {
         position: absolute;
         width: 100%;
@@ -14,11 +15,11 @@
             right: 0;
             width: calc-size($view-width, 336, "%");
             height: calc-size($view-height, 168, "%");
-            bottom: calc-size($view-height, 73, "%");
+            bottom: -10%;
         }
         &__image--1 {
             position: absolute;
-            bottom: -10%;
+            bottom: -20%;
             right: -20%;
             width: calc-size($view-width, 386, "%");
             height: calc-size($view-height, 360, "%");

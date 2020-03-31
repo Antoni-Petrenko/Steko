@@ -1,0 +1,77 @@
+.header {
+    min-height: 100vh;
+    width: 100%;
+    background-image: url("../img/mobile/background/2076747-02@2x.png");
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    &__background{
+        width: 100%;
+        height: 100%;
+        background: black;
+    }
+    &__heading {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 4.4rem;
+        font-weight: 600;
+        position: absolute;
+        top: calc-size($view-height, 139, "%");
+        left: calc-size($view-width, 33, "%");
+        color: #11A87A;
+    }
+    &__image {
+        position: absolute;
+        bottom: calc-size($view-height, 77, "%");
+        right: 0;
+        display: block;
+        width: calc(100% - 3.3rem);
+    }
+    &>.paragraph {
+        position: absolute;
+        color: white;
+        font-size: 1.6rem;
+        font-weight: 500;
+        top:calc-size($view-height, 240, "%");
+        left: calc-size($view-width, 33, "%");
+        width:  calc-size($view-width, 330, "%");
+    }
+    &__background{
+        width: 100%;
+        z-index: 200;
+        position: absolute;
+        height: 100%;
+        background: black;
+        transition: 1s;
+        opacity: 0;
+        pointer-events: none;
+    }
+}
+
+#header__button {
+    position: absolute;
+    top:  calc-size($view-height, 368, "%");
+    left: calc-size($view-width, 33, "%");
+}
+.activeIn{
+    animation: 1s in linear;
+}
+.activeOut{
+    animation: 1s out linear;
+}
+@keyframes in{
+   from{
+       opacity: 0;
+   }
+   to{
+       opacity: 1;
+   }
+}
+@keyframes out{
+    from{
+        opacity: 1;
+    }
+    to{
+        opacity: 0;
+    }
+}

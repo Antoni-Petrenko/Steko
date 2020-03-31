@@ -1,0 +1,11 @@
+.navigation{
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    background-color: rgba(0,0,0, .4);
+    padding: 2.5rem 3.3rem;
+    z-index: 2000;
+}
