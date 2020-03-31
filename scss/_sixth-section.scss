@@ -15,7 +15,7 @@
             right: 0;
             width: calc-size($view-width, 336, "%");
             height: calc-size($view-height, 168, "%");
-            bottom: -10%;
+            bottom: calc-size($view-height, 73, "%");
         }
         &__image--1 {
             position: absolute;
