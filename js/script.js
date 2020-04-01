@@ -30,15 +30,14 @@ window.onbeforeunload = () => window.scrollTo(0, 0);
 const scroll = e => {
   e.preventDefault();
   let {
-    isScrollAnimationON,
     headerBackground,
     header,
     navigation,
     logoWhiteLetter
   } = page;
 
-  if (isScrollAnimationON) {
-    page.isScrollAnimationON = false
+  if (page.isScrollAnimationON) {
+    page.isScrollAnimationON = false;
     anime.timeline({
       targets: headerBackground,
       delay: 500,
