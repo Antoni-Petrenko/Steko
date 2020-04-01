@@ -1,4 +1,5 @@
 const page = {
+  navigation: document.querySelector('.navigation'),
   preloader: document.querySelector(".preloader"),
   headerBackground: document.querySelector(".header__background"),
   firstSsectionImg: document.querySelector(".first-section__image-box--image"),
@@ -15,40 +16,56 @@ const page = {
   preloaderAnimation: anime.timeline({
     easing: 'easeOutExpo',
     duration: 1000
-  })
-
+  }),
+  logoWhiteLetter: [...document.querySelectorAll(".navigation__logo > path[fill='#fff']")],
+  isScrollAnimationON: true,
+  callFormButton: document.querySelectorAll('[id$="__button"]'),
+  form: document.querySelector('.form')
 };
 
 
-window.onbeforeunload=()=>window.scrollTo(0,0);
-let isScrollAnimationON=true;
+window.onbeforeunload = () => window.scrollTo(0, 0);
+
+
 const scroll = e => {
   e.preventDefault();
-  if(isScrollAnimationON){
-    isScrollAnimationON=false
-  anime.timeline({
-    targets:page.headerBackground,
-    delay:500,
-    duration: 500,
-    endDelay: 400,
-    easing: 'easeInOutSine'
-  }).add({
-    opacity:[0,1],
-  }).add({
-    targets:page.header,
-    opacity:0
-  }).add({
-    delay: 100,
-    opacity:[1,0],
-    complete:()=>{
-      page.headerBackground.style.pointerEvent="none";
-      page.header.remove();
-      window.removeEventListener("wheel",scroll);
-      window.removeEventListener("touchmove",scroll);
-      window.removeEventListener("scroll",scroll);
-    }
-  })
-  }else return
+  let {
+    isScrollAnimationON,
+    headerBackground,
+    header,
+    navigation,
+    logoWhiteLetter
+  } = page;
+
+  if (isScrollAnimationON) {
+    page.isScrollAnimationON = false
+    anime.timeline({
+      targets: headerBackground,
+      delay: 500,
+      duration: 500,
+      endDelay: 400,
+      easing: 'easeInOutSine'
+    }).add({
+      opacity: [0, 1],
+    }).add({
+      targets: header,
+      opacity: 0
+    }).add({
+      delay: 100,
+      opacity: [1, 0],
+      complete: () => {
+        navigation.style.backgroundColor = "rgba(255,255,255, 0.7)";
+        logoWhiteLetter.forEach(el => {
+          el.style.fill = "#535659";
+        })
+        headerBackground.style.pointerEvent = "none";
+        header.remove();
+        window.removeEventListener("wheel", scroll);
+        window.removeEventListener("touchmove", scroll);
+        window.removeEventListener("scroll", scroll);
+      }
+    })
+  } else return
 }
 window.addEventListener("wheel", scroll, {
   passive: false
@@ -140,6 +157,14 @@ window.onload = () => {
   })
   page.preloaderAnimation.finished.then((el) => {
     page.preloader.remove()
-  }); 
+  });
 }
 
+page.callFormButton.forEach(button => button.addEventListener('click', () => {
+  console.log('ok')
+  if (page.form.className.includes("enter")) {
+    page.form.classList.remove("enter")
+  }else{
+    page.form.classList.add("enter")
+  }
+}))

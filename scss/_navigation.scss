@@ -5,7 +5,12 @@
     display: flex;
     justify-content: space-between;
     width: 100%;
-    background-color: rgba(0,0,0, .4);
     padding: 2.5rem 3.3rem;
     z-index: 2000;
+    transition: 1s linear;
+    &__logo{
+        path{
+            transition: 1s linear;
+        }
+    }
 }

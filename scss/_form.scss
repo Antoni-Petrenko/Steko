@@ -1,9 +1,86 @@
-.form{
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    background-color: #fff;
-    z-index:4000;
+.form {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1500;
     display: flex;
     flex-direction: column;
+    padding: calc-size($view-width, 129, "%") calc-size($view-width, 35, "%") calc-size($view-width, 50, "%") calc-size($view-width, 33, "%");
+    opacity: 0;
+    pointer-events: none;
+    &__paragraph.paragraph {
+        padding: 4.3rem 0 6.1rem 0;
+    }
+    &__background {
+        position: fixed;
+        bottom: -100px;
+        left: -100px;
+        width: 100px;
+        height: 100px;
+        -webkit-transition: 1s ease-in-out;
+        transition: 1s ease-in-out;
+        background-color: white;
+        z-index: 1300;
+        border-radius: 50%;
+    }
+    &>form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        input {
+            border: none;
+            background-color: #F9F9F9;
+            padding: 1rem 2rem;
+            border-radius: 40px;
+            width: 100%;
+            border: 1px solid transparent;
+            transition: .3s;
+            &:focus {
+                outline: none;
+                border: 1px solid #11A87A;
+            }
+            &:not(:first-child) {
+                margin-top: 2.3rem;
+            }
+            &::placeholder {
+                font-family: 'Montserrat', sans-serif;
+                font-size: 1.6rem;
+                color: #535659;
+                font-weight: 500;
+            }
+        }
+        button {
+            margin-top: 2.3rem;
+            background-image: url("../img/mobile/Group242.svg");
+            background-position: center;
+            background-size: cover;
+            width: 58%;
+            height: 40px;
+            border: none;
+            display: block;
+            background-color: transparent;
+        }
+    }
+}
+.form.enter{
+    animation: 1s 1s enter ease-in-out forwards;
+    pointer-events: initial;
+}
+
+.form.enter + .form__background{
+   transform: scale(500);
+}
+
+
+@keyframes enter {
+    from {
+        transform: translateX(-30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0px);
+        opacity: 1;
+    }
 }
