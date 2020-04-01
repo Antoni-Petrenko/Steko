@@ -7,7 +7,7 @@
     z-index: 1500;
     display: flex;
     flex-direction: column;
-    padding: calc-size($view-width, 129, "%") calc-size($view-width, 35, "%") calc-size($view-width, 50, "%") calc-size($view-width, 33, "%");
+    padding: 7rem calc-size($view-width, 35, "%") calc-size($view-width, 50, "%") calc-size($view-width, 33, "%");
     opacity: 0;
     pointer-events: none;
     &__paragraph.paragraph {
