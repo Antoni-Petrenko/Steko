@@ -24,6 +24,8 @@ const page = {
 };
 
 
+
+
 window.onbeforeunload = () => window.scrollTo(0, 0);
 
 
@@ -163,7 +165,7 @@ page.callFormButton.forEach(button => button.addEventListener('click', () => {
   console.log('ok')
   if (page.form.className.includes("enter")) {
     page.form.classList.remove("enter")
-  }else{
+  } else {
     page.form.classList.add("enter")
   }
 }))

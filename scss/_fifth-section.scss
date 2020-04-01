@@ -1,6 +1,6 @@
 .fifth-section {
   position: relative;
-
+  min-height: calc(var(--vh, 1vh) * 100);
   &__clone {
     position: absolute;
     width: 100%;
