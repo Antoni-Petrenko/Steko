@@ -1,5 +1,5 @@
 .header {
-    min-height: calc(var(--vh) * 100);
+    min-height: calc(var(--vh, 1vh) * 100);
     width: 100%;
     background-image: url("../img/mobile/background/2076747-02@2x.png");
     background-position: center;
