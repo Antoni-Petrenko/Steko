@@ -13,8 +13,10 @@
       top: 0,
       left: 0,
     });
-    let vh=window.innerHeight*0.01;
-    document.documentElement.style.setProperty("--vh",`${vh}px` );
+    let vh = window.innerHeight * 0.01;
+    let vw = window.innerWidth * 0.01;
+    document.documentElement.style.setProperty("--vh", `${vh}px`);
+    document.documentElement.style.setProperty("--vw", `${vw}px`);
   </script>
   <link rel="stylesheet" href="./css/style.min.css" />
 </head>
@@ -22,6 +24,7 @@
 <body>
 
   <div class="form">
+
     <h2 class="form__heading heading">
       Зв'язатися
       <br/> з нами
@@ -37,7 +40,7 @@
       <button type="submit"></button>
     </form>
   </div>
-<div class="form__background"></div>
+  <div class="form__background"></div>
   <div class="preloader">
     <div class="preloader__background">
     </div>

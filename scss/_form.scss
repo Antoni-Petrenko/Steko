@@ -1,9 +1,9 @@
 .form {
-    width: 100vw;
-    max-height: calc(var(--vh, 1vh) * 100);
     position: fixed;
     top: 0;
     left: 0;
+    width: 100%;
+    height: calc(var(--vh, 1vh) * 100);
     z-index: 1500;
     display: flex;
     flex-direction: column;
@@ -42,7 +42,7 @@
                 border: 1px solid #11A87A;
             }
             &:not(:first-child) {
-                margin-top: 2.3rem;
+                margin-top: calc-size($view-width, 24, "%")
             }
             &::placeholder {
                 font-family: 'Montserrat', sans-serif;
@@ -64,15 +64,15 @@
         }
     }
 }
-.form.enter{
+
+.form.enter {
     animation: 1s 1s enter ease-in-out forwards;
     pointer-events: initial;
 }
 
-.form.enter + .form__background{
-   transform: scale(500);
+.form.enter+.form__background {
+    transform: scale(500);
 }
-
 
 @keyframes enter {
     from {

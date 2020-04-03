@@ -5,6 +5,7 @@ const page = {
   firstSsectionImg: document.querySelector(".first-section__image-box--image"),
   header: document.querySelector(".header"),
   footerSection: document.querySelector(".footer__content-box"),
+  navButton:document.querySelector(".navigation__button"),
   sections: [
     document.querySelector(".second-section"),
     document.querySelector(".third-section"),
@@ -25,9 +26,21 @@ const page = {
 
 
 
-
 window.onbeforeunload = () => window.scrollTo(0, 0);
 
+page.navButton.addEventListener('click',()=>{
+  console.log('ok')
+  if(page.form.className.includes("enter")){
+    page.form.classList.remove("enter");
+  }else if(window.pageYOffset!==0){
+    
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  }
+
+})
 
 const scroll = e => {
   e.preventDefault();
@@ -111,6 +124,7 @@ const addObserver = (targetElement, callback, isDisconect) => {
 
 
 document.addEventListener('DOMContentLoaded', () => {
+
   page.preloaderAnimation.add({
     targets: page.preloader.children[0],
     translateX: "-50%",
@@ -162,7 +176,6 @@ window.onload = () => {
 }
 
 page.callFormButton.forEach(button => button.addEventListener('click', () => {
-  console.log('ok')
   if (page.form.className.includes("enter")) {
     page.form.classList.remove("enter")
   } else {
