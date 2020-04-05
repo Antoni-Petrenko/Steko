@@ -8,9 +8,6 @@
     display: flex;
     flex-direction: column;
     padding: 18% calc-size($view-width, 35, "%") calc-size($view-width, 50, "%") calc-size($view-width, 33, "%");
-    transform: translateX(-30px);
-    opacity: 0;
-    pointer-events: none;
     transition: 1s  ease-in-out;
     overflow-y: scroll;
     &__paragraph.paragraph {
@@ -23,7 +20,7 @@
         width: 100px;
         height: 100px;
         transition: 1s ease-in-out;
-        transform: scale(0);
+        transform: scale(1);
         background-color: white;
         z-index: 1300;
         border-radius: 50%;
@@ -32,7 +29,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        
+        position: relative;
         input {
             border: none;
             background-color: #F9F9F9;
@@ -45,7 +42,6 @@
             &:focus {
                 outline: none;
                 border: 1px solid #11A87A;
-                transform: translateY(calc(var(--vh) * -50));
             }
             &:not(:first-child) {
                 margin-top: calc(var(--vh) * 5);
@@ -59,14 +55,6 @@
         }
         button {
             margin-top: 2.3rem;
-            background-image: url("../img/mobile/Group242.svg");
-            background-position: center;
-            background-size: cover;
-            width: 68%;
-            height: 40px;
-            border: none;
-            display: block;
-            background-color: transparent;
         }
     }
 }
@@ -80,4 +68,13 @@
 .form.enter+.form__background {
     transform: scale(500);
 }
+.form.off{
+    transform: translateX(-30px);
+    opacity: 0;
+    pointer-events: none;
+}
+.form.off+.form__background{
+    transform: scale(1);
+}
+
 
