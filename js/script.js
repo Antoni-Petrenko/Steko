@@ -5,7 +5,7 @@ const page = {
   firstSsectionImg: document.querySelector(".first-section__image-box--image"),
   header: document.querySelector(".header"),
   footerSection: document.querySelector(".footer__content-box"),
-  navButton:document.querySelector(".navigation__button"),
+  navButton: document.querySelector(".navigation__button"),
   sections: [
     document.querySelector(".second-section"),
     document.querySelector(".third-section"),
@@ -28,12 +28,12 @@ const page = {
 
 window.onbeforeunload = () => window.scrollTo(0, 0);
 
-page.navButton.addEventListener('click',()=>{
+page.navButton.addEventListener('click', () => {
   console.log('ok')
-  if(page.form.className.includes("enter")){
+  if (page.form.className.includes("enter")) {
     page.form.classList.remove("enter");
-  }else if(window.pageYOffset!==0){
-    
+  } else if (window.pageYOffset !== 0) {
+
     window.scrollTo({
       top: 0,
       behavior: "smooth"
@@ -141,7 +141,14 @@ document.addEventListener('DOMContentLoaded', () => {
     translateY: ["-42%", "-50%"]
   });
   window.addEventListener("scroll", () => (page.firstSsectionImg.style.transform = `scale(${1.2 - window.pageYOffset / 2000})`));
-  window.addEventListener("resize", e => (e.target.requestIdleCallback(() => page.sections.forEach(setCloneSectionSize))));
+  window.addEventListener("resize", e => {
+    e.target.requestIdleCallback(() => page.sections.forEach(setCloneSectionSize));
+    let vh = window.innerHeight * 0.01;
+    let vw = window.innerWidth * 0.01;
+    document.documentElement.style.setProperty("--vh", `${vh}px`);
+    document.documentElement.style.setProperty("--vw", `${vw}px`);
+
+  });
 
   const rellax = new Rellax(" .parallax", {
     center: true
@@ -176,9 +183,14 @@ window.onload = () => {
 }
 
 page.callFormButton.forEach(button => button.addEventListener('click', () => {
-  if (page.form.className.includes("enter")) {
-    page.form.classList.remove("enter")
-  } else {
-    page.form.classList.add("enter")
-  }
+  page.form.classList.toggle("enter");
 }))
+
+document.querySelectorAll("input").forEach(input => {
+  input.addEventListener("focus", e => {
+    e.target.style.transform = `translateY(${(window.innerHeight/4) - e.target.offsetTop}px)`
+  });
+  input.addEventListener("blur", e => {
+    e.target.style.transform = `translateY(0)`
+  });
+})

@@ -16,14 +16,13 @@
             right: 0;
             width: calc-size($view-width, 336, "%");
             height: calc-size($view-height, 168, "%");
-            bottom: -10%;
+            bottom: 0%;
         }
         &__image--1 {
             position: absolute;
-            bottom: -25%;
+            bottom: -10%;
             right: -20%;
             width: calc-size($view-width, 386, "%");
-            height: calc-size($view-height, 360, "%");
         }
         &__SVG {
             position: absolute;

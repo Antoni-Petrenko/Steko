@@ -8,10 +8,13 @@
     display: flex;
     flex-direction: column;
     padding: 18% calc-size($view-width, 35, "%") calc-size($view-width, 50, "%") calc-size($view-width, 33, "%");
+    transform: translateX(-30px);
     opacity: 0;
     pointer-events: none;
+    transition: 1s  ease-in-out;
+    overflow-y: scroll;
     &__paragraph.paragraph {
-        padding: 4.3rem 0 6.1rem 0;
+        padding: 1rem 0;
     }
     &__background {
         position: fixed;
@@ -19,8 +22,8 @@
         left: -100px;
         width: 100px;
         height: 100px;
-        -webkit-transition: 1s ease-in-out;
         transition: 1s ease-in-out;
+        transform: scale(0);
         background-color: white;
         z-index: 1300;
         border-radius: 50%;
@@ -29,20 +32,23 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        
         input {
             border: none;
             background-color: #F9F9F9;
             padding: 1rem 2rem;
             border-radius: 40px;
-            width: 100%;
+            width: 100%; 
             border: 1px solid transparent;
+            transform: translateY(0);
             transition: .3s;
             &:focus {
                 outline: none;
                 border: 1px solid #11A87A;
+                transform: translateY(calc(var(--vh) * -50));
             }
             &:not(:first-child) {
-                margin-top: calc-size($view-width, 24, "%")
+                margin-top: calc(var(--vh) * 5);
             }
             &::placeholder {
                 font-family: 'Montserrat', sans-serif;
@@ -56,7 +62,7 @@
             background-image: url("../img/mobile/Group242.svg");
             background-position: center;
             background-size: cover;
-            width: 58%;
+            width: 68%;
             height: 40px;
             border: none;
             display: block;
@@ -66,7 +72,8 @@
 }
 
 .form.enter {
-    animation: 1s 1s enter ease-in-out forwards;
+    transform: translateX(0px);
+    opacity: 1;
     pointer-events: initial;
 }
 
@@ -74,13 +81,3 @@
     transform: scale(500);
 }
 
-@keyframes enter {
-    from {
-        transform: translateX(-30px);
-        opacity: 0;
-    }
-    to {
-        transform: translateX(0px);
-        opacity: 1;
-    }
-}
