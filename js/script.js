@@ -186,11 +186,11 @@ page.callFormButton.forEach(button => button.addEventListener('click', () => {
   page.form.classList.toggle("enter");
 }))
 
-document.querySelectorAll("input").forEach(input => {
-  input.addEventListener("focus", e => {
-    e.target.style.transform = `translateY(${(window.innerHeight/4) - e.target.offsetTop}px)`
-  });
-  input.addEventListener("blur", e => {
-    e.target.style.transform = `translateY(0)`
-  });
-})
+// document.querySelectorAll("input").forEach(input => {
+//   input.addEventListener("focus", e => {
+//     e.target.style.transform = `translateY(${(window.innerHeight/4) - e.target.offsetTop}px)`
+//   });
+//   input.addEventListener("blur", e => {
+//     e.target.style.transform = `translateY(0)`
+//   });
+// })
