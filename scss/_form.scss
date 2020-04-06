@@ -13,7 +13,8 @@
     opacity: 0;
     transform: translateX(-30);
     pointer-events: none;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: scroll;
     &__SVG--left {
         position: absolute;
         bottom: calc-size($view-height,65, "%");
