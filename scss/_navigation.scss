@@ -14,3 +14,16 @@
         }
     }
 }
+
+@media only screen and (max-device-width: 727px) {
+    .navigation{
+        &__logo{
+            width: 213.36px;
+            height: 26.81px;
+        }
+        &__button{
+            width: 28px;
+            height: 28px;
+        }
+    }
+}

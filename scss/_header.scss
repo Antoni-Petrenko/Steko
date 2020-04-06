@@ -93,19 +93,37 @@
     }
 }
 
-@keyframes left_line{
-    from{
+@keyframes left_line {
+    from {
         transform: translateX(-20px)
     }
-    to{
+    to {
         transform: translateX(0px)
     }
 }
-@keyframes left_right{
-    from{
+
+@keyframes left_right {
+    from {
         transform: translateX(20px)
     }
-    to{
+    to {
         transform: translateX(0px)
+    }
+}
+
+@media only screen and (max-device-width: 727px) {
+    .header {
+        &__SVG--left {}
+        &__SVG--right {}
+        &__background {}
+        &__heading {}
+        &__image {}
+        &>.paragraph {}
+        &__background {}
+    }
+    #header__button {
+        top: 45%;
+        font-size: 1.9rem;
+        padding: 0.4rem 4rem;
     }
 }

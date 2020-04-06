@@ -38,38 +38,6 @@
   transform: translate(-50%,-50%);
 }
 
-.checkmark path {
-  // animation: 1s draw-check ease-out;
-}
-
-// @keyframes draw-circle {
-//   0% {
-//     stroke-dasharray: 0, 330;
-//     stroke-dashoffset: 0;
-//   }
-//   80% {
-//     stroke-dasharray: 330, 330;
-//     stroke-dashoffset: 0;
-//     box-shadow: 12px 12px 2px 1px rgba(green, 0.2);
-//   }
-//   100% {
-//   }
-// }
-// @keyframes draw-check {
-//   0% {
-//     stroke-dasharray: 49, 80;
-//     stroke-dashoffset: 48;
-//   }
-//   50% {
-//     stroke-dasharray: 49, 80;
-//     stroke-dashoffset: 48;
-//   }
-//   100% {
-//     stroke-dasharray: 130, 80;
-//     stroke-dashoffset: 48;
-//   }
-// }
-/*---------- Cross ----------*/
 
 .cross {
   stroke-width: 6.25;

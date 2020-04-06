@@ -1,5 +1,3 @@
-
-
 .first-section {
   min-height: calc(var(--vh, 1vh) * 100);
   &__image-box {
@@ -17,7 +15,6 @@
       transition: 0.5s ease-out;
     }
   }
-
   &__content-box {
     width: calc-size($view-width, 342, "%");
     margin-left: calc-size($view-width, 33, "%");
@@ -29,5 +26,16 @@
     color: #33856c;
     padding-bottom: calc-size($view-width, 50, "%");
   }
-  
+}
+
+@media only screen and (max-device-width: 727px) {
+  .first-section {
+    &__heading.heading {
+      font-size: 5.2rem;
+      font-weight: 600;
+    }
+    &__content-box {
+      margin-top: -14%;
+    }
+  }
 }
