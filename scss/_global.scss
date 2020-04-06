@@ -38,9 +38,12 @@ body {
       transparent 50%
     );
   }
+  &:focus{
+    outline: none;
+  }
 }
 section {
-  min-height: calc(var(--vh, 1vh) * 100);
+  // min-height: calc(var(--vh, 1vh) * 100);
   z-index: 100;
 }
 
@@ -51,7 +54,9 @@ svg {
 img {
   z-index: 1;
 }
-
+button{
+  font-family: "Montserrat", sans-serif;
+}
 .heading {
   font-size: 3.8rem;
   font-family: "Montserrat", sans-serif;

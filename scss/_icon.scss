@@ -1,10 +1,11 @@
 .svg-box {
-  display: none;
+  display: block;
   position: absolute;
   /* width: 150px; */
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  pointer-events: none;
 }
 
 .green-stroke {
@@ -18,9 +19,8 @@
 
 .circular circle.path {
   stroke-dasharray: 330;
-  stroke-dashoffset: 0;
+  stroke-dashoffset: 330;
   stroke-linecap: round; // opacity: 0.4;
-  animation: 0.7s draw-circle ease-out;
 }
 
 /*------- Checkmark ---------*/
@@ -29,45 +29,46 @@
   stroke-width: 6.25;
   stroke-linecap: round;
   position: absolute;
-  top: 56px;
-  left: 49px;
+  top:50%;
+  left: 50%;
   width: 52px;
   height: 40px;
+  stroke-dasharray:  160;
+  stroke-dashoffset: 160;
+  transform: translate(-50%,-50%);
 }
 
 .checkmark path {
-  animation: 1s draw-check ease-out;
+  // animation: 1s draw-check ease-out;
 }
 
-@keyframes draw-circle {
-  0% {
-    stroke-dasharray: 0, 330;
-    stroke-dashoffset: 0;
-  }
-  80% {
-    stroke-dasharray: 330, 330;
-    stroke-dashoffset: 0;
-    box-shadow: 12px 12px 2px 1px rgba(green, 0.2);
-  }
-  100% {
-  }
-}
-
-@keyframes draw-check {
-  0% {
-    stroke-dasharray: 49, 80;
-    stroke-dashoffset: 48;
-  }
-  50% {
-    stroke-dasharray: 49, 80;
-    stroke-dashoffset: 48;
-  }
-  100% {
-    stroke-dasharray: 130, 80;
-    stroke-dashoffset: 48;
-  }
-}
-
+// @keyframes draw-circle {
+//   0% {
+//     stroke-dasharray: 0, 330;
+//     stroke-dashoffset: 0;
+//   }
+//   80% {
+//     stroke-dasharray: 330, 330;
+//     stroke-dashoffset: 0;
+//     box-shadow: 12px 12px 2px 1px rgba(green, 0.2);
+//   }
+//   100% {
+//   }
+// }
+// @keyframes draw-check {
+//   0% {
+//     stroke-dasharray: 49, 80;
+//     stroke-dashoffset: 48;
+//   }
+//   50% {
+//     stroke-dasharray: 49, 80;
+//     stroke-dashoffset: 48;
+//   }
+//   100% {
+//     stroke-dasharray: 130, 80;
+//     stroke-dashoffset: 48;
+//   }
+// }
 /*---------- Cross ----------*/
 
 .cross {

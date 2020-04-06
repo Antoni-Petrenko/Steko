@@ -16,11 +16,11 @@
             right: 0;
             width: calc-size($view-width, 336, "%");
             height: calc-size($view-height, 168, "%");
-            bottom: 0%;
+            bottom: -5%;
         }
         &__image--1 {
             position: absolute;
-            bottom: -10%;
+            bottom: -27%;
             right: -20%;
             width: calc-size($view-width, 386, "%");
         }

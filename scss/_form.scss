@@ -7,15 +7,31 @@
     z-index: 1500;
     display: flex;
     flex-direction: column;
-    padding: 18% calc-size($view-width, 35, "%") calc-size($view-width, 50, "%") calc-size($view-width, 33, "%");
-    transition: 1s  ease-in-out;
+    padding: 28% calc-size($view-width, 35, "%") calc-size($view-width, 50, "%") calc-size($view-width, 33, "%");
+    transition: 1s ease-in-out;
     overflow-y: scroll;
+    opacity: 0;
+    transform: translateX(-30);
+    pointer-events: none;
+    overflow: hidden;
+    &__SVG--left {
+        position: absolute;
+        bottom: calc-size($view-height,65, "%");
+        left: 0;
+        animation: left_line 2s 1s ease-in-out infinite alternate;
+    }
+    &__SVG--right {
+        position: absolute;
+        top: calc-size($view-height, 160, "%");
+        right: 0;
+        animation: left_right 2s ease-in-out infinite alternate;
+    }
     &__paragraph.paragraph {
-        padding: 1rem 0;
+        padding: 5rem 0;
     }
     &__background {
         position: fixed;
-        bottom: -100px;
+        top: -100px;
         left: -100px;
         width: 100px;
         height: 100px;
@@ -33,9 +49,9 @@
         input {
             border: none;
             background-color: #F9F9F9;
-            padding: 1rem 2rem;
+            padding: 0.7rem 2rem;
             border-radius: 40px;
-            width: 100%; 
+            width: 100%;
             border: 1px solid transparent;
             transform: translateY(0);
             transition: .3s;
@@ -44,7 +60,7 @@
                 border: 1px solid #11A87A;
             }
             &:not(:first-child) {
-                margin-top: calc(var(--vh) * 5);
+                margin-top: calc(var(--vh) * 3.25);
             }
             &::placeholder {
                 font-family: 'Montserrat', sans-serif;
@@ -54,27 +70,8 @@
             }
         }
         button {
-            margin-top: 2.3rem;
+            font-family: "Montserrat", sans-serif;
+            margin-top: 5rem;
         }
     }
 }
-
-.form.enter {
-    transform: translateX(0px);
-    opacity: 1;
-    pointer-events: initial;
-}
-
-.form.enter+.form__background {
-    transform: scale(500);
-}
-.form.off{
-    transform: translateX(-30px);
-    opacity: 0;
-    pointer-events: none;
-}
-.form.off+.form__background{
-    transform: scale(1);
-}
-
-

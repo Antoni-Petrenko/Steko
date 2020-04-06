@@ -1,8 +1,5 @@
-
-
 .second-section {
   position: relative;
-  
   &__content-box {
     width: calc-size($view-width, 241, "%");
     margin-left: calc-size($view-width, 148, "%");
@@ -24,6 +21,18 @@
   &__clone {
     position: absolute;
     width: 100%;
+    overflow: hidden;
+    &__SVG--left {
+      position: absolute;
+      top: calc-size($view-height, 335, "%");
+      left: 0;
+    }
+    &__SVG--right {
+      position: absolute;
+      top: calc-size($view-height, 163, "%");
+      right: 0;
+      animation: left_right 2s ease-in-out infinite alternate;
+    }
     &__image {
       position: absolute;
       top: calc-size($view-height, 152, "%");

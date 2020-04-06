@@ -9,13 +9,13 @@
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700,800,900&display=swap&subset=cyrillic-ext"
     rel="stylesheet">
   <script>
-    const calcViweSize=()=>{
-    let vh = window.innerHeight * 0.01;
-    let vw = window.innerWidth * 0.01;
-    document.documentElement.style.setProperty("--vh", `${vh}px`);
-    document.documentElement.style.setProperty("--vw", `${vw}px`);
-  };
-  calcViweSize();
+    const calcViweSize = () => {
+      let vh = window.innerHeight * 0.01;
+      let vw = window.innerWidth * 0.01;
+      document.documentElement.style.setProperty("--vh", `${vh}px`);
+      document.documentElement.style.setProperty("--vw", `${vw}px`);
+    };
+    calcViweSize();
   </script>
   <link rel="stylesheet" href="./css/style.min.css" />
 </head>
@@ -23,7 +23,8 @@
 <body>
 
   <div class="form off">
-
+    <img class="form__SVG--right" src="./img/mobile/imgs/SVG__path/form_section/Group 244.svg" alt="line">
+    <img class="form__SVG--left" src="./img/mobile/imgs/SVG__path/form_section/Group 361.svg" alt="">
     <h2 class="form__heading heading">
       Зв'язатися
       <br/> з нами
@@ -39,16 +40,16 @@
       <button type="submit" class="btn">Замовити</button>
       <div class="svg-box">
         <svg class="circular green-stroke">
-            <circle class="path" cx="75" cy="75" r="50" fill="none" stroke-width="5" stroke-miterlimit="10"/>
+          <circle class="path" cx="50%" cy="50%" r="50" fill="none" stroke-width="5" stroke-miterlimit="10" />
         </svg>
         <svg class="checkmark green-stroke">
-            <g transform="matrix(0.79961,8.65821e-32,8.39584e-32,0.79961,-489.57,-205.679)">
-                <path class="checkmark__check" fill="none" d="M616.306,283.025L634.087,300.805L673.361,261.53"/>
-            </g>
+          <g transform="matrix(0.79961,8.65821e-32,8.39584e-32,0.79961,-489.57,-205.679)">
+            <path class="checkmark__check" fill="none" d="M616.306,283.025L634.087,300.805L673.361,261.53" />
+          </g>
         </svg>
-    </div>
+      </div>
     </form>
-    
+
   </div>
   <div class="form__background"></div>
   <div class="preloader">
@@ -103,9 +104,12 @@
     </svg>
   </nav>
   <header class="header">
+
+    <img class="header__SVG--left" src="./img/mobile/imgs/SVG__path/header/Group243.svg" alt="line">
+    <img class="header__SVG--right" src="./img/mobile/imgs/SVG__path/header/Group244.svg" alt="line">
     <h1 class="header__heading">Steko IDEAL</h1>
     <p class="paragraph">Віконна система преміум класу для ідеального затишку</p>
-    
+
     <button id="header__button" class="btn" type="button">Замовити</button>
     <img class="header__image" src="./img/mobile/imgs/Stekoideal1@2x.png" alt="Steko Ideal">
   </header>
@@ -135,9 +139,11 @@
         xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
         <rect width="0%" height="0%" />
       </svg>
+      <img src="./img/mobile/imgs/SVG__path/sec-section/Group257.svg" alt="line" class="second-section__clone__SVG--right">
+      <img src="./img/mobile/imgs/SVG__path/sec-section/Group258.svg " data-rellax-zindex="2" data-rellax-percentage="0.5" data-rellax-speed="3"
+        alt="line" class="second-section__clone__SVG--left parallax">
     </div>
     <section class="second-section">
-
       <div class="second-section__content-box">
         <h2 class="heading second-section__heading">
           Профіль

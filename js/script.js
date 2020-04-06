@@ -30,9 +30,29 @@ const page = {
 window.onbeforeunload = () => window.scrollTo(0, 0);
 
 page.navButton.addEventListener("click", () => {
-  if (page.formContainer.className.includes("enter")) {
-    page.formContainer.classList.remove("enter");
+  if (!page.formContainer.classList.contains("off")) {
     page.formContainer.classList.add("off");
+    const succass = anime
+      .timeline({
+        easing: "easeOutExpo",
+        duration: 500,
+      }).add({
+        targets: page.formContainer,
+        opacity: 0,
+      })
+    succass.finished
+      .then(() => {
+        page.formContainer.style.pointerEvents = "none";
+        page.navigation.style.backgroundColor = "rgba(255,255,255, 0)";
+        page.logoWhiteLetter.forEach((el) => {
+          el.style.fill = "#fff";
+        });
+        anime({
+          targets: document.querySelector(".form__background"),
+          scale: 1,
+          duration: 1000
+        })
+      });
   } else if (window.pageYOffset !== 0) {
     window.scrollTo({
       top: 0,
@@ -43,7 +63,12 @@ page.navButton.addEventListener("click", () => {
 
 const scroll = (e) => {
   e ? e.preventDefault() : null;
-  let { headerBackground, header, navigation, logoWhiteLetter } = page;
+  let {
+    headerBackground,
+    header,
+    navigation,
+    logoWhiteLetter
+  } = page;
 
   if (page.isScrollAnimationON) {
     page.isScrollAnimationON = false;
@@ -139,17 +164,17 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener(
     "scroll",
     () =>
-      (page.firstSsectionImg.style.transform = `scale(${
+    (page.firstSsectionImg.style.transform = `scale(${
         1.2 - window.pageYOffset / 2000
       })`)
   );
   window.addEventListener(
     "resize",
     (e) =>
-      e.target.requestIdleCallback(() => {
-        page.sections.forEach(setCloneSectionSize);
-        calcViweSize();
-      }),
+    e.target.requestIdleCallback(() => {
+      page.sections.forEach(setCloneSectionSize);
+      calcViweSize();
+    }),
     false
   );
 
@@ -197,16 +222,25 @@ window.onload = () => {
 
 page.callFormButton.forEach((button) =>
   button.addEventListener("click", () => {
-    if (page.formContainer.className.includes("enter")) {
-      page.formContainer.classList.remove("enter");
-      page.formContainer.classList.add("off");
-    } else if (window.offsetTop > 400) {
-      page.formContainer.classList.remove("off");
-      page.formContainer.classList.add("enter");
-    } else {
-      scroll();
-      page.formContainer.classList.remove("off");
-      page.formContainer.classList.add("enter");
+    if (page.formContainer.classList.contains("off")) {
+      page.formContainer.classList.toggle("off");
+      page.logoWhiteLetter.forEach((el) => {
+        el.style.fill = "#535659";
+      });
+      const formAnimation = anime.timeline({
+        easing: "easeOutExpo",
+        duration: 400,
+      }).add({
+        targets: document.querySelector(".form__background"),
+        scale: 50
+      }).add({
+        targets: page.formContainer,
+        translateX: 0,
+        opacity: 1,
+        complete: () => {
+          page.formContainer.style.pointerEvents = "initial"
+        }
+      })
     }
   })
 );
@@ -217,13 +251,18 @@ page.form.addEventListener("submit", (e) => {
     (object, targetInput) => {
       object[targetInput.name] = targetInput.value;
       return object;
-    },
-    {}
+    }, {}
   );
-  fetch("http://online.steko.com", {
-    method: "POST",
-    data: data,
+  anime({
+    targets: document.querySelector("#Rectangle_221"),
+    strokeDashoffset: [330, 0],
+    easing: 'easeInOutSine',
+    duration: 500,
   })
+  fetch("http://online.steko.com", {
+      method: "POST",
+      data: data,
+    })
     .then((responce) => (responce.ok ? responce.json() : null))
     .catch((error) => {
       const succass = anime
@@ -234,25 +273,41 @@ page.form.addEventListener("submit", (e) => {
         .add({
           targets: e.target.querySelectorAll("input"),
           opacity: 0,
-        });
+        }).add({
+          targets: e.target.querySelector('.circular circle.path'),
+          strokeDashoffset: [330, 0],
+          easing: 'easeInOutSine',
+          duration: 500,
+        })
+        .add({
+          targets: e.target.querySelector('.checkmark path'),
+          strokeDashoffset: [anime.setDashoffset, 160],
+          easing: 'easeInOutSine',
+          duration: 500,
+        }).add({
+          targets: page.formContainer,
+          opacity: 0,
+        })
       succass.finished
         .then(() => {
-          e.target.querySelector(".svg-box").style.display = "block";
-        })
-        .then(() => {
-          const out = anime
-            .timeline({
-              duration: 500,
-              easing: "easeOutExpo",
-            })
-            .add({
-              targets: page.formContainer,
-              opacity: 0,
-              delay:1000,
-            }).add({
-              targets:document.querySelector(".form__background"),
-              scale: 1
-            })
+          page.formContainer.classList.add("off");
+          if (!!page.header.style.opacity) {
+            page.navigation.style.backgroundColor = "rgba(255,255,255, 0.7)"; +
+            page.logoWhiteLetter.forEach((el) => {
+              el.style.fill = "#535659";
+            });
+          } else {
+            page.navigation.style.backgroundColor = "rgba(255,255,255, 0)";
+            page.logoWhiteLetter.forEach((el) => {
+              el.style.fill = "#fff";
+            });
+          }
+          page.formContainer.style.pointerEvents = "none";
+          anime({
+            targets: document.querySelector(".form__background"),
+            scale: 1,
+            duration: 1000
+          })
         });
     });
 });

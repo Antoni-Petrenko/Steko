@@ -6,7 +6,20 @@
     background-size: cover;
     position: absolute;
     top: 0;
-    &__background{
+    overflow: hidden;
+    &__SVG--left {
+        position: absolute;
+        bottom: calc-size($view-height, 41, "%");
+        left: 0;
+        animation: left_line 2s 1s ease-in-out infinite alternate;
+    }
+    &__SVG--right {
+        position: absolute;
+        top: calc-size($view-height, 163, "%");
+        right: 0;
+        animation: left_right 2s ease-in-out infinite alternate;
+    }
+    &__background {
         width: 100%;
         height: 100%;
         background: black;
@@ -32,11 +45,11 @@
         color: white;
         font-size: 1.6rem;
         font-weight: 500;
-        top:calc-size($view-height, 240, "%");
+        top: calc-size($view-height, 240, "%");
         left: calc-size($view-width, 33, "%");
-        width:  calc-size($view-width, 330, "%");
+        width: calc-size($view-width, 330, "%");
     }
-    &__background{
+    &__background {
         width: 100%;
         z-index: 200;
         position: absolute;
@@ -50,28 +63,49 @@
 
 #header__button {
     position: absolute;
-    top:  calc-size($view-height, 368, "%");
+    top: calc-size($view-height, 368, "%");
     left: calc-size($view-width, 33, "%");
 }
-.activeIn{
+
+.activeIn {
     animation: 1s in linear;
 }
-.activeOut{
+
+.activeOut {
     animation: 1s out linear;
 }
-@keyframes in{
-   from{
-       opacity: 0;
-   }
-   to{
-       opacity: 1;
-   }
-}
-@keyframes out{
-    from{
+
+@keyframes in {
+    from {
+        opacity: 0;
+    }
+    to {
         opacity: 1;
     }
-    to{
+}
+
+@keyframes out {
+    from {
+        opacity: 1;
+    }
+    to {
         opacity: 0;
+    }
+}
+
+@keyframes left_line{
+    from{
+        transform: translateX(-20px)
+    }
+    to{
+        transform: translateX(0px)
+    }
+}
+@keyframes left_right{
+    from{
+        transform: translateX(20px)
+    }
+    to{
+        transform: translateX(0px)
     }
 }
