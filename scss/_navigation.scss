@@ -5,7 +5,7 @@
     display: flex;
     justify-content: space-between;
     width: 100%;
-    padding: 2.5rem 3.3rem;
+    padding: 1.5rem 3.3rem;
     z-index: 2000;
     transition: 1s linear;
     &__logo{
@@ -15,7 +15,11 @@
     }
 }
 
-@media only screen and (max-device-width: 727px) {
+
+
+
+
+@media only screen and (min-width: 727px) and (max-width:1373px) {
     .navigation{
         &__logo{
             width: 213.36px;
@@ -26,4 +30,10 @@
             height: 28px;
         }
     }
-}
+  }
+  
+  @media only screen and (min-width:1374px) and (max-width:1925px){
+    html{
+      font-size: 100%
+    }
+  }

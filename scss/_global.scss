@@ -21,8 +21,8 @@ body {
   border-radius: 30px;
   border: none;
   color: white;
-  font-size: 2rem;
-  padding: 0.8rem 5.8rem;
+  font-size: 20px;
+  padding: 8px 58px;
   position: relative;
   &::after {
     position: absolute;
@@ -100,19 +100,26 @@ button {
     height: 100%;
   }
 }
-@media only screen and (max-device-width: 414px) {
-  html {
-    font-size: 62.5%;
-  }
+
+main {
+  overflow: hidden;
+  width: 100vw;
 }
 
-@media only screen and (max-device-width: 360px) {
+@media only screen and (max-width: 360px) {
   html {
     font-size: 49.8%;
   }
 }
-@media only screen and (max-device-width: 727px) {
+
+@media only screen and (min-width: 726px) and (max-width:1373px) {
   html {
     font-size: 92.5%;
+  }
+}
+
+@media only screen and (min-width:1374px) and (max-width:1925px) {
+  html {
+    font-size: 100%
   }
 }

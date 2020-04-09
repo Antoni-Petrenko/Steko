@@ -1,6 +1,6 @@
 .fifth-section {
   position: relative;
-  min-height: calc(var(--vh, 1vh) * 100);
+  // min-height: calc(var(--vh, 1vh) * 100);
   &__clone {
     position: absolute;
     width: 100%;
@@ -30,7 +30,7 @@
   &__content-box {
     width: calc-size($view-width, 276, "%");
     padding-top: calc-size(548, 119, "%");
-    padding-bottom: calc-size($view-height, 92, "%");
+    padding-bottom:25vh;
     margin-left: calc-size($view-width, 33, "%");
   }
   &__heading.heading {

@@ -7,6 +7,7 @@
     position: absolute;
     top: 0;
     overflow: hidden;
+    z-index: 10;
     &__SVG--left {
         position: absolute;
         bottom: calc-size($view-height, 41, "%");
@@ -39,6 +40,7 @@
         right: 0;
         display: block;
         width: calc(100% - 3.3rem);
+        max-width: 567px;
     }
     &>.paragraph {
         position: absolute;
@@ -111,19 +113,23 @@
     }
 }
 
-@media only screen and (max-device-width: 727px) {
-    .header {
-        &__SVG--left {}
-        &__SVG--right {}
-        &__background {}
-        &__heading {}
-        &__image {}
-        &>.paragraph {}
-        &__background {}
-    }
+@media only screen and (min-width: 727px) and (max-width:1373px) {
     #header__button {
         top: 45%;
         font-size: 1.9rem;
         padding: 0.4rem 4rem;
     }
+}
+
+@media only screen and (min-width: 727px) and (max-width:1370px) and (orientation: landscape) {
+    .header {
+        &__image {
+            right: 11%;
+            width: 50%;
+        }
+    }
+}
+
+@media only screen and (min-width:1371px) and (max-width:1925px){
+
 }

@@ -29,30 +29,29 @@ const page = {
 
 window.onbeforeunload = () => window.scrollTo(0, 0);
 
+const closeForm=()=>{
+  page.formContainer.classList.add("off");
+  const succass = anime
+    .timeline({
+      easing: "easeOutExpo",
+      duration: 500,
+    }).add({
+      targets: page.formContainer,
+      opacity: 0,
+    })
+  succass.finished
+    .then(() => {
+      page.formContainer.style.pointerEvents = "none";
+      anime({
+        targets: document.querySelector(".form__background"),
+        scale: 1,
+        duration: 1000
+      })
+    });
+}
 page.navButton.addEventListener("click", () => {
   if (!page.formContainer.classList.contains("off")) {
-    page.formContainer.classList.add("off");
-    const succass = anime
-      .timeline({
-        easing: "easeOutExpo",
-        duration: 500,
-      }).add({
-        targets: page.formContainer,
-        opacity: 0,
-      })
-    succass.finished
-      .then(() => {
-        page.formContainer.style.pointerEvents = "none";
-        page.navigation.style.backgroundColor = "rgba(255,255,255, 0)";
-        page.logoWhiteLetter.forEach((el) => {
-          el.style.fill = "#fff";
-        });
-        anime({
-          targets: document.querySelector(".form__background"),
-          scale: 1,
-          duration: 1000
-        })
-      });
+   closeForm()
   } else if (window.pageYOffset !== 0) {
     window.scrollTo({
       top: 0,
@@ -114,13 +113,15 @@ window.addEventListener("scroll", scroll, {
   passive: false,
 });
 
-const setCloneSectionSize = (section) => {
+const setCloneSectionSize = (section, index, allSections) => {
+
   const selectClone = document.querySelector(`.${section.className}__clone`);
   if (selectClone) {
     const height = section.offsetHeight;
     const positionOnThePage = section.offsetTop;
-    selectClone.style.height = `${height}px`;
+    selectClone.style.height = allSections.length - 1 === index ? `${document.body.offsetHeight-section.offsetTop}px` : `${height}px`;
     selectClone.style.top = `${positionOnThePage}px`;
+
   }
 };
 
@@ -168,28 +169,7 @@ document.addEventListener("DOMContentLoaded", () => {
         1.2 - window.pageYOffset / 2000
       })`)
   );
-  window.addEventListener(
-    "resize",
-    (e) =>
-    e.target.requestIdleCallback(() => {
-      page.sections.forEach(setCloneSectionSize);
-      calcViweSize();
-    }),
-    false
-  );
 
-  window.addEventListener(
-    "orientationchange",
-    () => {
-      page.sections.forEach(setCloneSectionSize);
-      calcViweSize();
-    },
-    false
-  );
-
-  const rellax = new Rellax(" .parallax", {
-    center: true,
-  });
   page.svgRects.forEach((observerTarget) =>
     addObserver(observerTarget, (animationTarget) => {
       animationTarget.classList.add("fadeIn");
@@ -209,6 +189,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
 window.onload = () => {
   page.sections.forEach(setCloneSectionSize);
+  const rellax = new Rellax(" .parallax", {
+    center: true,
+  });
+  window.addEventListener(
+    "resize",
+    (e) => {
+      page.sections.forEach(setCloneSectionSize);
+      calcViweSize();
+      rellax.refresh();
+    },
+    false
+  );
   page.preloaderAnimation.add({
     targets: page.preloader,
     easing: "easeOutExpo",
@@ -224,6 +216,9 @@ page.callFormButton.forEach((button) =>
   button.addEventListener("click", () => {
     if (page.formContainer.classList.contains("off")) {
       page.formContainer.classList.toggle("off");
+      page.form.parentElement.querySelector('.form__close-button').addEventListener("click",()=>{
+        closeForm()
+      })
       page.logoWhiteLetter.forEach((el) => {
         el.style.fill = "#535659";
       });
@@ -238,7 +233,17 @@ page.callFormButton.forEach((button) =>
         translateX: 0,
         opacity: 1,
         complete: () => {
-          page.formContainer.style.pointerEvents = "initial"
+          page.formContainer.style.pointerEvents = "initial";
+          page.navigation.style.backgroundColor = "rgba(255,255,255, 0.7)";
+          page.logoWhiteLetter.forEach((el) => {
+            el.style.fill = "#535659";
+          });
+          page.headerBackground.style.pointerEvent = "none";
+          page.header.remove();
+          window.removeEventListener("wheel", scroll);
+          window.removeEventListener("touchmove", scroll);
+          window.removeEventListener("scroll", scroll);
+
         }
       })
     }
@@ -290,18 +295,11 @@ page.form.addEventListener("submit", (e) => {
         })
       succass.finished
         .then(() => {
-          page.formContainer.classList.add("off");
-          if (!!page.header.style.opacity) {
-            page.navigation.style.backgroundColor = "rgba(255,255,255, 0.7)"; +
-            page.logoWhiteLetter.forEach((el) => {
-              el.style.fill = "#535659";
-            });
-          } else {
-            page.navigation.style.backgroundColor = "rgba(255,255,255, 0)";
-            page.logoWhiteLetter.forEach((el) => {
-              el.style.fill = "#fff";
-            });
-          }
+          page.navigation.style.backgroundColor = "rgba(255,255,255, 0.7)";
+          page.logoWhiteLetter.forEach((el) => {
+            el.style.fill = "#535659";
+          });
+
           page.formContainer.style.pointerEvents = "none";
           anime({
             targets: document.querySelector(".form__background"),
@@ -311,3 +309,17 @@ page.form.addEventListener("submit", (e) => {
         });
     });
 });
+
+
+document.querySelectorAll("input").forEach(el => {
+  if (window.innerWidth <= 414) {
+    el.addEventListener("focus", e => {
+      e.target.form.previousElementSibling.style.display = "none";
+      e.target.form.style.backgroundColor = "#fff";
+    })
+    el.addEventListener("blur", e => {
+      e.target.form.previousElementSibling.style.display = "block";
+      e.target.form.style.backgroundColor = "transparent";
+    })
+  }
+})

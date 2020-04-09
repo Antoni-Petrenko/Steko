@@ -9,6 +9,7 @@
   &__heading.heading {
     color: #535659;
     line-height: 5.5rem;
+    position: relative;
     & span:nth-of-type(1) {
       color: #127e5d;
     }
@@ -29,8 +30,8 @@
     }
     &__SVG--right {
       position: absolute;
-      top: calc-size($view-height, 163, "%");
-      right: 0;
+      top: 25%;
+      right: -10%;
       animation: left_right 2s ease-in-out infinite alternate;
     }
     &__image {
@@ -52,14 +53,15 @@
   }
 }
 
-@media only screen and (max-device-width: 727px) {
+@media only screen and (min-width: 726px) and (max-width:1373px) {
   .second-section {
     &__clone {
       &__SVG--left {
-       
+        top:45%;
+        width: 75px;
       }
       &__SVG--right {
-       
+       width: 125px;
       }
     }
   }

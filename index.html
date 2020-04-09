@@ -23,21 +23,27 @@
 <body>
 
   <div class="form off">
-    <img class="form__SVG--right" src="./img/mobile/imgs/SVG__path/form_section/Group 244.svg" alt="line">
-    <img class="form__SVG--left" src="./img/mobile/imgs/SVG__path/form_section/Group 361.svg" alt="">
-    <h2 class="form__heading heading">
-      Зв'язатися
-      <br/> з нами
-    </h2>
-    <p class="form__paragraph paragraph">
-      Ми хотіли б почути і допомогти вам з будь-яким конкретним питанням, яке у вас може бути. Зв'яжіться з нами і давайте робити
-      затишок разом!
-    </p>
+    <img src="./img/mobile/icons/formButton.svg" class="form__close-button"alt="close button">
+    <div>
+      <h2 class="form__heading heading">
+        Зв'язатися
+        <br/> з нами
+        <img class="form__SVG--right" src="./img/mobile/imgs/SVG__path/form_section/Group 244.svg" alt="line">
+
+      </h2>
+      <p class="form__paragraph paragraph">
+        Ми хотіли б почути і допомогти вам з будь-яким конкретним питанням, яке у вас може бути. Зв'яжіться з нами і давайте робити
+        затишок разом!
+      </p>
+    </div>
+
     <form id="form">
       <input class="paragraph" name="name" type="text" placeholder="Ім'я" required>
       <input class="paragraph" name="surname" type="text" placeholder="Прізвище">
       <input class="paragraph" name="e-mail" type="email" placeholder="e-mail" required>
-      <button type="submit" class="btn">Замовити</button>
+      <button type="submit" class="form__button btn">
+          <img class="form__SVG--left" src="./img/mobile/imgs/SVG__path/form_section/Group 361.svg" alt="">
+          Замовити</button>
       <div class="svg-box">
         <svg class="circular green-stroke">
           <circle class="path" cx="50%" cy="50%" r="50" fill="none" stroke-width="5" stroke-miterlimit="10" />
@@ -119,7 +125,6 @@
       <div class="first-section__image-box">
         <img class="first-section__image-box--image" src="./img/mobile/imgs/чернобелое@2x.png" alt="Steko" />
       </div>
-
       <div class="first-section__content-box">
         <h2 class="heading first-section__heading">
           ІДЕАЛЬНО
@@ -139,7 +144,6 @@
         xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
         <rect width="0%" height="0%" />
       </svg>
-      <img src="./img/mobile/imgs/SVG__path/sec-section/Group257.svg" alt="line" class="second-section__clone__SVG--right">
       <img src="./img/mobile/imgs/SVG__path/sec-section/Group258.svg " data-rellax-zindex="2" data-rellax-percentage="0.5" data-rellax-speed="3"
         alt="line" class="second-section__clone__SVG--left parallax">
     </div>
@@ -150,6 +154,7 @@
           <span>
             Aluplast
           </span>
+          <img src="./img/mobile/imgs/SVG__path/sec-section/Group257.svg" alt="line" class="second-section__clone__SVG--right">
           <span>
             Німеччина
           </span>
@@ -249,16 +254,11 @@
         </p>
       </div>
     </section>
-
-    <div class="sixth-section__clone">
-
-      <img class="sixth-section__clone__image parallax" data-rellax-zindex="2" data-rellax-percentage=".5" data-rellax-speed="3"
-        src="./img/mobile/imgs/david-jorre-803805-unsplash@2x.png" alt="Double Silver" />
-      <img class="sixth-section__clone__image--1 parallax" data-rellax-zindex="1" data-rellax-percentage=".5" data-rellax-speed="2"
-        src="./img/mobile/imgs/ламинация-1@2x.png" alt="Steko" />
-
-    </div>
     <section class="sixth-section">
+      <img class="sixth-section__clone__image " data-rellax-zindex="2" data-rellax-percentage=".5" data-rellax-speed="3" src="./img/mobile/imgs/david-jorre-803805-unsplash@2x.png"
+        alt="Double Silver" />
+      <img class="sixth-section__clone__image--1 parallax " data-rellax-zindex="1" data-rellax-percentage=".5" data-rellax-speed="2"
+        src="./img/mobile/imgs/ламинация-1@2x.png" alt="Steko" />
       <svg class="sixth-section__clone__SVG parallax" data-rellax-zindex="-1" data-rellax-percentage="1" data-rellax-speed="2"
         xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
         <rect width="0%" height="0%" />
@@ -285,7 +285,7 @@
           <figcaption class="paragraph">Безкоштовна доставка по всій Україні</figcaption>
         </figure>
         <figure>
-          <img src="./img/mobile/icons/Group356.svg" alt="можливість замовити онлайн та сплатити в кредит" />
+          <img src="./img/mobile/icons/Group361.svg" alt="можливість замовити онлайн та сплатити в кредит" />
           <figcaption class="paragraph">Можливість замовити онлайн та сплатити в кредит</figcaption>
         </figure>
         <figure>

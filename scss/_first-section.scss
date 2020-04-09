@@ -1,5 +1,7 @@
 .first-section {
-  min-height: calc(var(--vh, 1vh) * 100);
+ position: relative;
+ height: 100vh;
+ z-index: 0;
   &__image-box {
     overflow: hidden;
     position: relative;
@@ -28,14 +30,17 @@
   }
 }
 
-@media only screen and (max-device-width: 727px) {
+
+@media only screen and (min-width: 726px) and (max-width:1373px) {
   .first-section {
-    &__heading.heading {
-      font-size: 5.2rem;
-      font-weight: 600;
-    }
-    &__content-box {
-      margin-top: -14%;
-    }
-  }
+        &__heading.heading {
+          font-size: 5.2rem;
+          font-weight: 600;
+          padding-bottom: 4%;
+        }
+        &__content-box {
+          margin-top: -14%;
+        }
+
+      }
 }

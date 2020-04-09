@@ -4,25 +4,21 @@
     background-position: center;
     background-size: cover;
     z-index: -2;
-    height: calc(100vh - 10rem);
-    margin: 10rem 0 0 0;
     &__clone {
         position: absolute;
         width: 100%;
-        overflow-x: hidden;
-        overflow-y: hidden;
+        overflow: hidden;
         &__image {
             position: absolute;
             right: 0;
             width: calc-size($view-width, 336, "%");
-            height: calc-size($view-height, 168, "%");
-            bottom: -5%;
+            bottom: 10%;
         }
         &__image--1 {
             position: absolute;
-            bottom: -27%;
+            bottom: -12%;
             right: -20%;
-            width: calc-size($view-width, 386, "%");
+            width: 87%;
         }
         &__SVG {
             position: absolute;
@@ -36,10 +32,10 @@
         }
     }
     &__content-box {
+        padding: 13.5vh 0 39vh 0;
         z-index: 2;
         width: calc-size($view-width, 340, "%");
         margin-left: calc-size($view-width, 33, "%");
-        padding-top: calc-size($view-width, 99, "%");
     }
     &__heading.heading {
         color: white;
@@ -51,5 +47,16 @@
         font-size: 1.6rem;
         color: white;
         line-height: 2.7rem;
+    }
+}
+
+@media only screen and (min-width: 727px) and (max-width:1373px) {
+    .sixth-section {
+        min-height: 971px;;
+        &__clone{
+            &__image{
+                max-width: 589.56px;
+            }
+        }
     }
 }

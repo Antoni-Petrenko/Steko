@@ -1,6 +1,5 @@
 .third-section {
   position: relative;
-  
   &__content-box {
     width: calc-size($view-width, 276, "%");
     margin-left: calc-size($view-width, 33, "%");
@@ -12,7 +11,6 @@
     color: #535659;
     font-size: 3rem;
     line-height: 5rem;
-
     & span:nth-of-type(1) {
       color: #127e5d;
       font-size: 3rem;
@@ -24,8 +22,8 @@
     }
   }
   &__clone {
-      position: absolute;
-      width: 100%;
+    position: absolute;
+    width: 100%;
     &__image {
       position: absolute;
       top: calc-size(100%, 132px, "%");
@@ -43,6 +41,31 @@
       z-index: 1;
       rect {
         fill: #23604d;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 726px) and (max-width:1373px) {
+  .third-section {
+    &__clone {
+      &__image {
+        max-width: 367px;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 726px) and (max-width:1373px) and (orientation: landscape) {
+  .third-section {
+    &__clone {
+      &__image {
+        max-width: 367px;
+        top: 30%;
+      }
+      &__SVG {
+        height: 50%;
+        ;
       }
     }
   }
