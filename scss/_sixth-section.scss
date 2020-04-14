@@ -52,11 +52,67 @@
 
 @media only screen and (min-width: 727px) and (max-width:1373px) {
     .sixth-section {
-        min-height: 971px;;
-        &__clone{
-            &__image{
+        min-height: 971px;
+        &__clone {
+            &__image {
                 max-width: 589.56px;
             }
         }
     }
 }
+
+@include respond(desktop) {
+    .sixth-section {
+        min-height: 58vh;
+        background-image: url("../img/desctop-laptop/img/images/2076747-02.png");
+        &__content-box{
+            margin-left: 22%;
+        }
+        &__heading.heading{
+            font-size: 44px;
+            &  br{
+                display: none;
+            }
+        }
+        &__paragraph.paragraph{
+            font-size: 18px;
+            width: 41%;
+        }
+        &__clone {
+            &__image {
+                bottom: 42px;
+                max-width: 27.8%;
+                right: 8.3%;
+            }
+            &__image--1 {
+                bottom: -21%;
+                right: 6%;
+                width: 29%;
+            }
+            &__SVG {
+                position: absolute;
+                width: 8.4%;
+                height:45.6vh;
+                top: calc-size($view-height, -65, "%");
+                left: 16.5%;
+                & rect {
+                    fill: #23604D;
+                }
+            }
+        }
+    }
+}
+
+
+@include respond(big-screen) {
+    .sixth-section {
+      &__heading.heading {
+        font-size: 66px;
+       
+      }
+      &__paragraph.paragraph {
+        font-size: 25px;
+        line-height: 40px;
+      }
+    }
+  }

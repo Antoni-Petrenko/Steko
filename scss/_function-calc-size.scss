@@ -1,12 +1,44 @@
 $view-width: 414;
 $view-height: 737;
-
 @function calc-size($view-direction, $design-size, $units) {
   $percents: round(($design-size / $view-direction) * 100);
-  @if ($units == "vh") {
+  @if ($units=="vh") {
     @return $percents * 1vh;
   }
-  @if ($units == "%") {
+  @if ($units=="%") {
     @return $percents * 1%;
+  }
+}
+
+@mixin respond($breakpoint) {
+  @if $breakpoint==phone {
+    @media only screen and (max-width: 37.5em) {
+      @content
+    }
+    ; 
+  }
+  @if $breakpoint==tab-port {
+    @media only screen and (min-width: 726px) and (max-width:1373px) {
+      @content
+    }
+    ; 
+  }
+  @if $breakpoint==tab-land {
+    @media only screen and (min-width: 727px) and (max-width:1369px) and (orientation: landscape) {
+      @content
+    }
+    ; 
+  }
+  @if $breakpoint==desktop {
+    @media only screen and (min-width: 1370px) {
+      @content
+    }
+    ; 
+  }
+  @if $breakpoint==big-screen {
+    @media only screen and (min-width: 1800px) {
+      @content
+    }
+    ;
   }
 }

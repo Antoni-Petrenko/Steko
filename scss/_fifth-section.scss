@@ -1,6 +1,5 @@
 .fifth-section {
-  position: relative;
-  // min-height: calc(var(--vh, 1vh) * 100);
+  position: relative; // min-height: calc(var(--vh, 1vh) * 100);
   &__clone {
     position: absolute;
     width: 100%;
@@ -9,16 +8,16 @@
       width: calc-size($view-width, 90, "%");
       top: 5%;
       right: 0;
-      &--1{
-          position: absolute;
-          width:calc-size($view-width, 108, "%") ;
-          top: calc-size($view-height,111, "%");
-          right:0;
+      &--1 {
+        position: absolute;
+        width: calc-size($view-width, 108, "%");
+        top: calc-size($view-height, 111, "%");
+        right: 0;
       }
     }
     &__SVG {
       position: absolute;
-      top: calc-size($view-height,150, "%");
+      top: calc-size($view-height, 150, "%");
       right: calc-size($view-width, 23, "%");
       width: calc-size($view-width, 90, "%");
       height: calc-size($view-height, 272, "%");
@@ -30,7 +29,7 @@
   &__content-box {
     width: calc-size($view-width, 276, "%");
     padding-top: calc-size(548, 119, "%");
-    padding-bottom:25vh;
+    padding-bottom: 25vh;
     margin-left: calc-size($view-width, 33, "%");
   }
   &__heading.heading {
@@ -47,6 +46,72 @@
       display: inline-block;
       margin-top: 2.8rem;
       margin-bottom: 6.3rem;
+    }
+  }
+}
+
+@include respond(desktop) {
+  .fifth-section {
+    &__content-box {
+      width: initial;
+      margin-left: 20.25%;
+      margin-right: 35.8%;
+      padding-top: 12%;
+    }
+    &__clone {
+      &__image {
+        width: 10%;
+        right: 13.35%;
+        top: 33vh;
+        &--1 {
+          width: 14.8%;
+          top: 45vh;
+          right: 17.76%;
+        }
+      }
+      &__SVG {
+        top: 20%;
+        right: 8.3%;
+        width: 31.1%;
+        height: 21.5%;
+      }
+    }
+    &__heading.heading {
+      font-size: 34px;
+      & span:nth-of-type(1) {
+        display: block;
+        font-size: 55px;
+      }
+      & span:nth-of-type(2) {
+        font-size: 25px;
+        margin-top: 52px;
+        margin-bottom: 57px;
+      }
+    }
+    &__paragraph.paragraph {
+      font-size: 20px;
+      line-height: 40px;
+    }
+  }
+}
+
+@include respond(big-screen) {
+  .fifth-section {
+    &__heading.heading {
+      font-size: 49px;
+      & span:nth-of-type(1) {
+        font-size: 79px;
+      }
+      & span:nth-of-type(2) {
+        font-size: 37px;
+        margin-top: 72px;
+        margin-bottom: 80px;
+      }
+     
+    }
+    &__paragraph.paragraph {
+      font-size: 25px;
+      line-height: 40px;
     }
   }
 }

@@ -1,6 +1,5 @@
 .fourth-section {
   position: relative;
- 
   &__clone {
     position: absolute;
     width: 100%;
@@ -16,7 +15,6 @@
       left: 0;
       width: calc-size($view-width, 124, "%");
       height: calc-size($view-height, 247, "%");
-      
       rect {
         fill: #d7d7d7;
       }
@@ -47,6 +45,78 @@
       padding: 2.5rem 0 6.5rem 0;
       font-size: 2.3rem;
       font-weight: bold;
+    }
+  }
+}
+
+@include respond(desktop) {
+  .fourth-section {
+    &__content-box {
+      width: initial;
+      margin-left: 41.6%;
+      margin-right: 9%;
+      padding-top: 13%;
+      padding-bottom: 8%;
+    }
+    &__paragraph.paragraph {
+      font-size: 20px;
+      line-height: 35px;
+    }
+    &__heading.heading {
+      & span:nth-of-type(2) {
+        font-size: 62px;
+        margin: 40px 0 45px 0;
+      }
+      & span:nth-of-type(3) {
+        font-size: 20px;
+      }
+      & span:nth-of-type(4) {
+        padding: 17px 0 50px 0;
+        font-size: 25px;
+        display: block;
+      }
+    }
+    &__clone {
+      &__image {
+        width: 40%;
+        top: 10vh;
+        left: 10%;
+      }
+      &__SVG {
+        top: 65vh;
+        left: 17%;
+        width: 34.4%;
+        height: 15.7%;
+        rect {
+          fill: #d7d7d7;
+        }
+      }
+    }
+  }
+}
+
+@include respond(big-screen) {
+  .fourth-section {
+    &__heading.heading {
+      & span:nth-of-type(1) {
+        font-size: 53px;
+      }
+      & span:nth-of-type(2) {
+        font-size: 90px;
+        line-height: 110px;
+      }
+      & span:nth-of-type(3) {
+        font-size: 30px;
+   
+      }
+      & span:nth-of-type(4) {
+        font-size: 37px;
+        padding: 0px 0 69px 0;
+      }
+    }
+    &__paragraph.paragraph {
+      font-size: 25px;
+      line-height: 40px;
     }
   }
 }

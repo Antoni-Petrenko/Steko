@@ -8,6 +8,19 @@
     top: 0;
     overflow: hidden;
     z-index: 10;
+    &__laptop {
+        &__SVG {
+            &-line {
+                display: none;
+            }
+            &-rect {
+                display: none;
+            }
+            &-rect-fill {
+                display: none;
+            }
+        }
+    }
     &__SVG--left {
         position: absolute;
         bottom: calc-size($view-height, 41, "%");
@@ -113,7 +126,7 @@
     }
 }
 
-@media only screen and (min-width: 727px) and (max-width:1373px) {
+@include respond (tab-port) {
     #header__button {
         top: 45%;
         font-size: 1.9rem;
@@ -121,7 +134,7 @@
     }
 }
 
-@media only screen and (min-width: 727px) and (max-width:1370px) and (orientation: landscape) {
+@include respond(tab-land) {
     .header {
         &__image {
             right: 11%;
@@ -130,6 +143,108 @@
     }
 }
 
-@media only screen and (min-width:1371px) and (max-width:1925px){
+@include respond (desktop) {
+    .header {
+        background-image: url("../img/desctop-laptop/img/background/headerBG.jpg");
+        &__SVG--right {
+            display: none;
+        }
+        &__heading {
+            top: 42%;
+            left: 17%;
+           
+            font-size: 620%;
+        }
+        &__SVG--left {
+            bottom: 52%;
+            width: 15.7%;
+        }
+        &>.paragraph {
+            top: 22%;
+            left: 33.5%;
+            font-size: 16px;
+            width: 264px;
+            line-height: 25px;
+        }
+        &__image-box {
+            position: absolute;
+            right: 11.7%;
+            bottom: 23.7vh;
+            overflow: hidden;
+            width: 425px;
+            height: 280px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        &__image {
+            position: initial;
+            width: 150%;
+        }
+        &__laptop {
+            &__SVG {
+                &-line {
+                    display: block;
+                    position: absolute;
+                    bottom: 8.5%;
+                    right: 0;
+                    width: 35vw;
+                }
+                &-rect {
+                    display: block;
+                    bottom: 19%;
+                    position: absolute;
+                }
+                &-rect-fill {
+                    display: block;
+                    position: absolute;
+                    top: 13.5%;
+                    right: 7.5%;
+                    width: 12.3%;
+                    height: 70vh;
+                    
+                }
+            }
+        }
+    }
+    #header__button {
+        top: 73.5%;
+        left: 16.5%;
+        font-size: 12px;
+        padding: 0.4rem 3rem;
+        z-index: 20;
+    }
+}
 
+@include respond(big-screen) {
+    .header {
+        &__image-box {
+            transform: scale(1.5);
+            right: 18.7%;
+            bottom: 32.7vh;
+        }
+        &>.paragraph{
+            font-size: 25px;
+            width: 419px;
+            top: 16%;
+        }
+        &__heading{
+            top: 33%;
+            font-size: 97px;
+        }
+        &__SVG--left{
+            bottom: 60%;
+        }
+        &__laptop {
+            &__SVG {
+                &-rect {
+                    width: 40%;
+                    bottom: 14%;
+                }
+            }
+        }
+    }
+    #header__button {
+        font-size: 23px;
+    }
 }

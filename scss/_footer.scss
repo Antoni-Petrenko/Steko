@@ -27,19 +27,70 @@
         }
     }
     &__image-box {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: calc-size($view-height, 122, "%");
+        height: 17vh;
+        width: 100%;
         overflow: hidden;
-        &>img {
-            width: 100%;
-            transform: scale(1.2)
-        }
+        background-image: url("../img/mobile/imgs/marc-olivier-jodoin-486793-unsplash@2x.png");
+        background-size: cover;
+        background-position: center;
     }
 }
 
 #footer__button {
-    margin-top: calc-size($view-width,65, "%");
+    margin-top: calc-size($view-width, 65, "%");
     margin-bottom: calc-size($view-width, 52, "%");
 }
+
+@include respond(desktop) {
+    .footer {
+        padding: 149px 0 100 0;
+        .heading {
+            padding: 0;
+            margin-top: 149px;
+        }
+        &__content-box {
+            flex-direction: row;
+            text-align: center;
+            & figure {
+                flex-direction: column;
+                margin: 89px 0 0 0;
+                & figcaption.paragraph{
+                    font-size: 20px
+                }
+                & img {
+                    margin: 0;
+                }
+            }
+        }
+        &__image-box {
+            margin: 100px 0 0 0;
+            background-image: url("../img/desctop-laptop/img/images/marc-olivier-jodoin-486793-unsplash.png");
+
+        }
+    }
+    #footer__button {
+        margin: 112px 0 0 0;
+    }
+}
+
+
+
+@include respond(big-screen) {
+    .footer {
+      .heading {
+      font-size: 65px;
+      margin-top: 202px;
+      }
+      &__content-box{
+          width: 100%;
+          justify-content: space-evenly;
+          figure{
+            width: 309px;
+          }
+      }
+      &__paragraph.paragraph {
+        font-size: 25px;
+        line-height: 40px;
+      }
+    }
+  }

@@ -8,27 +8,19 @@
   <title>Steko | IDEAL</title>
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700,800,900&display=swap&subset=cyrillic-ext"
     rel="stylesheet">
-  <script>
-    const calcViweSize = () => {
-      let vh = window.innerHeight * 0.01;
-      let vw = window.innerWidth * 0.01;
-      document.documentElement.style.setProperty("--vh", `${vh}px`);
-      document.documentElement.style.setProperty("--vw", `${vw}px`);
-    };
-    calcViweSize();
-  </script>
   <link rel="stylesheet" href="./css/style.min.css" />
 </head>
 
 <body>
 
   <div class="form off">
-    <img src="./img/mobile/icons/formButton.svg" class="form__close-button"alt="close button">
+    <img src="./img/mobile/icons/formButton.svg" class="form__close-button" alt="close button">
     <div>
       <h2 class="form__heading heading">
         Зв'язатися
         <br/> з нами
         <img class="form__SVG--right" src="./img/mobile/imgs/SVG__path/form_section/Group 244.svg" alt="line">
+        <img class="form__SVG--right--desktop" src="./img/desctop-laptop/img/SVG/Group294.svg" alt="line">
 
       </h2>
       <p class="form__paragraph paragraph">
@@ -42,8 +34,9 @@
       <input class="paragraph" name="surname" type="text" placeholder="Прізвище">
       <input class="paragraph" name="e-mail" type="email" placeholder="e-mail" required>
       <button type="submit" class="form__button btn">
-          <img class="form__SVG--left" src="./img/mobile/imgs/SVG__path/form_section/Group 361.svg" alt="">
-          Замовити</button>
+        <img class="form__SVG--left" src="./img/mobile/imgs/SVG__path/form_section/Group 361.svg" alt=""> Замовити
+        <img class="form__SVG--left--desktop" src="./img/desctop-laptop/img/SVG/Group293.svg" alt="line">
+      </button>
       <div class="svg-box">
         <svg class="circular green-stroke">
           <circle class="path" cx="50%" cy="50%" r="50" fill="none" stroke-width="5" stroke-miterlimit="10" />
@@ -88,6 +81,9 @@
       <path class="path" id="Path_30" data-name="Path 30" d="M154,13.226l5.408-5.52H152.77l-4.435,5.071V2.4l-5.6,3.05V22.807h5.539V18.915l2.1-2.1,2.938,5.988H159.4L154,13.226Z"
         transform="translate(-9.454 -2.4)" fill="#11a87a" />
     </svg>
+    <div class="navigation__scroll-bar-track">
+      <span class="navigation__scroll-bar-thumb"></span>
+    </div>
     <svg class="navigation__button" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
       <g id="Group_234" data-name="Group 234" transform="translate(-362 -85)">
         <g id="Rectangle_187" data-name="Rectangle 187" transform="translate(373 85)" fill="none" stroke="#11a87a" stroke-width="1">
@@ -108,29 +104,42 @@
         </g>
       </g>
     </svg>
+
   </nav>
   <header class="header">
-
+    <img class="header__laptop__SVG-line" src="./img/desctop-laptop/img/SVG/Group 312.svg" alt="laptop SVG" />
+    <img class="header__laptop__SVG-rect" src="./img/desctop-laptop/img/SVG/Rectangle 480.svg" alt="laptop SVG" />
+    <svg class="header__laptop__SVG-rect-fill" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+      <rect width="100%" height="100%" />
+    </svg>
     <img class="header__SVG--left" src="./img/mobile/imgs/SVG__path/header/Group243.svg" alt="line">
     <img class="header__SVG--right" src="./img/mobile/imgs/SVG__path/header/Group244.svg" alt="line">
     <h1 class="header__heading">Steko IDEAL</h1>
     <p class="paragraph">Віконна система преміум класу для ідеального затишку</p>
 
     <button id="header__button" class="btn" type="button">Замовити</button>
-    <img class="header__image" src="./img/mobile/imgs/Stekoideal1@2x.png" alt="Steko Ideal">
+    <div class="header__image-box">
+      <img class="header__image" src="./img/mobile/imgs/Stekoideal1@2x.png" alt="Steko Ideal">
+    </div>
+
   </header>
   <div class="header__background"></div>
   <main>
     <section class="first-section">
       <div class="first-section__image-box">
-        <img class="first-section__image-box--image" src="./img/mobile/imgs/чернобелое@2x.png" alt="Steko" />
+        <picture>
+          <source srcset="./img/desctop-laptop/img/images/чернобелое.jpg" media="(min-width:700px)">
+
+          <img class="first-section__image-box--image" src="./img/mobile/imgs/чернобелое@2x.png" alt="Steko" />
+        </picture>
+
       </div>
       <div class="first-section__content-box">
         <h2 class="heading first-section__heading">
           ІДЕАЛЬНО
           <br/> І ТЕПЛО
         </h2>
-        <p class="paragraph ">
+        <p class="first-section__paragraph paragraph ">
           Віконна система серії
           <span>Steko IDEAL</span> втілює в собі філософію компанії
           <span>Steko</span> - це ідеальні компоненти, поєднані для створення тепла та затишку у вашій оселі.
@@ -146,6 +155,10 @@
       </svg>
       <img src="./img/mobile/imgs/SVG__path/sec-section/Group258.svg " data-rellax-zindex="2" data-rellax-percentage="0.5" data-rellax-speed="3"
         alt="line" class="second-section__clone__SVG--left parallax">
+      <svg class="second-section__clone__SVG--gray parallax" data-rellax-zindex="-1" data-rellax-percentage="1" data-rellax-speed="2"
+        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <rect width="0%" height="0%" />
+      </svg>
     </div>
     <section class="second-section">
       <div class="second-section__content-box">
@@ -159,7 +172,7 @@
             Німеччина
           </span>
         </h2>
-        <p class="paragraph">
+        <p class="second-section__paragraph paragraph">
           Якість профілю відповідає високим європейським вимогам. Надійний і жорсткий, він відповідає за цілісність вікна, його довгу
           службу після монтажу. Оригінальна форма і розташування повітряних камер всередині профілю гарантує збереження тепла
           в приміщенні.
@@ -186,7 +199,7 @@
             Австрія
           </span>
         </h2>
-        <p class="paragraph">
+        <p class="third-section__paragraph paragraph">
           Справжній витвір мистецтва інженерів компанії Maco, які вже понад 70 років розробляють та вдосконалюють віконну фурнітуру.
           Відноситься до типу поворотно-відкидних і має принципово новий базовий склад. Крім стандартного набору функцій,
           з'явилися зламостійкі роликові i.S.-цапфи. Їх конфігурація, а також додавання необхідної кількості зламостійких
@@ -196,8 +209,12 @@
       </div>
     </section>
     <div class="fourth-section__clone">
-      <img class="fourth-section__clone__image parallax" data-rellax-zindex="2" data-rellax-percentage=".5" data-rellax-speed="3"
-        src="./img/mobile/imgs/даблсилвер@2x.png" alt="Double Silver" />
+      <picture>
+        <source media="(min-width: 1370px)" srcset="./img/desctop-laptop/img/images/даблсилвер.png">
+        <img class="fourth-section__clone__image parallax" data-rellax-zindex="2" data-rellax-percentage=".5" data-rellax-speed="7"
+          src="./img/mobile/imgs/даблсилвер@2x.png" alt="Double Silver" />
+      </picture>
+
       <svg class="fourth-section__clone__SVG parallax" data-rellax-zindex="-1" data-rellax-percentage="1" data-rellax-speed="2"
         xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
         <rect width="0%" height="0%" />
@@ -216,7 +233,7 @@
             Великобританія
           </span>
         </h2>
-        <p class="paragraph">
+        <p class="fourth-section__paragraph paragraph">
           Це скло нового покоління імпортується ексклюзивно для
           <span>Steko</span>, що підкреслює особливість вікон
           <span>Steko IDEAL. Double Silver Steko </span>plus має
@@ -230,6 +247,7 @@
     <div class="fifth-section__clone">
       <img class="fifth-section__clone__image parallax " data-rellax-zindex="2" data-rellax-percentage=".5" data-rellax-speed="3"
         src="./img/mobile/imgs/marc-olivier-jodoin-361842-unsplash@2x.png" alt="Double Silver" />
+
       <img class="fifth-section__clone__image--1 parallax" data-rellax-percentage="1" data-rellax-speed="2" src="./img/mobile/imgs/ruchka@2x.png"
         alt="Steko" />
       <svg class="fifth-section__clone__SVG parallax" data-rellax-zindex="-1" data-rellax-percentage="1" data-rellax-speed="2"
@@ -245,7 +263,7 @@
           <span>Steko BioTouch</span>
           <span>Україна</span>
         </h2>
-        <p class="paragraph">
+        <p class="fifth-section__paragraph paragraph">
           Фірмова ручка
           <span>Steko Bio Touch</span> має привабливий дизайн, приємна на дотик та, що найголовніше, володіє
           <span>антибактеріальними властивостями</span>. За рахунок
@@ -268,7 +286,7 @@
           ІДЕАЛЬНИЙ
           <br/> КОЛІР
         </h2>
-        <p class="paragraph">
+        <p class="sixth-section__paragraph paragraph">
           Виберіть персональний колір ламінації Вашого ідеального вікна серед широкої палітри
         </p>
       </div>
@@ -294,12 +312,9 @@
         </figure>
       </div>
       <button type="button" id="footer__button" class="btn">Замовити</button>
-      <div class="footer__image-box">
-        <img src="./img/mobile/imgs/marc-olivier-jodoin-486793-unsplash@2x.png" alt="">
-      </div>
+      <div class="footer__image-box"></div>
     </section>
   </main>
-
   <script src="./js/anime.min.js"></script>
   <script src="./js/rellax.min.js"></script>
   <script src="./js/script.js"></script>

@@ -25,11 +25,12 @@ const page = {
   callFormButton: document.querySelectorAll('[id$="__button"]'),
   formContainer: document.querySelector(".form"),
   form: document.querySelector("#form"),
+  scrollBarTrack: document.querySelector(".navigation__scroll-bar-track")
 };
 
 window.onbeforeunload = () => window.scrollTo(0, 0);
 
-const closeForm=()=>{
+const closeForm = () => {
   page.formContainer.classList.add("off");
   const succass = anime
     .timeline({
@@ -51,7 +52,7 @@ const closeForm=()=>{
 }
 page.navButton.addEventListener("click", () => {
   if (!page.formContainer.classList.contains("off")) {
-   closeForm()
+    closeForm();
   } else if (window.pageYOffset !== 0) {
     window.scrollTo({
       top: 0,
@@ -71,6 +72,14 @@ const scroll = (e) => {
 
   if (page.isScrollAnimationON) {
     page.isScrollAnimationON = false;
+    (function () {
+      const scriptJQ = document.createElement("script");
+      scriptJQ.setAttribute('src', "//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js");
+      document.body.appendChild(scriptJQ);
+      const scrollJQ = document.createElement("script");
+      scrollJQ.setAttribute('src', "./js/jquery.easeScroll.js");
+      document.body.appendChild(scrollJQ)
+    })()
     anime
       .timeline({
         targets: headerBackground,
@@ -90,7 +99,7 @@ const scroll = (e) => {
         delay: 100,
         opacity: [1, 0],
         complete: () => {
-          navigation.style.backgroundColor = "rgba(255,255,255, 0.7)";
+          window.innerWidth > 1000 ? null : navigation.style.backgroundColor = `rgba(255,255,255, 0.7)`;
           logoWhiteLetter.forEach((el) => {
             el.style.fill = "#535659";
           });
@@ -99,6 +108,22 @@ const scroll = (e) => {
           window.removeEventListener("wheel", scroll);
           window.removeEventListener("touchmove", scroll);
           window.removeEventListener("scroll", scroll);
+          document.querySelector(".navigation__scroll-bar-track").style.opacity = 1;
+          $("html").easeScroll({
+            frameRate: 1,
+            animationTime: 2000,
+            stepSize: 50,
+            pulseAlgorithm: 1,
+            pulseScale: 8,
+            pulseNormalize: 1,
+            accelerationDelta: 1,
+            accelerationMax: 1,
+            keyboardSupport: true,
+            arrowScroll: 50,
+            touchpadSupport: true,
+            fixedBackground: true
+          });
+
         },
       });
   } else return;
@@ -196,7 +221,6 @@ window.onload = () => {
     "resize",
     (e) => {
       page.sections.forEach(setCloneSectionSize);
-      calcViweSize();
       rellax.refresh();
     },
     false
@@ -216,9 +240,12 @@ page.callFormButton.forEach((button) =>
   button.addEventListener("click", () => {
     if (page.formContainer.classList.contains("off")) {
       page.formContainer.classList.toggle("off");
-      page.form.parentElement.querySelector('.form__close-button').addEventListener("click",()=>{
+      page.form.parentElement.querySelector('.form__close-button').addEventListener("click", () => {
         closeForm()
-      })
+      });
+      document.querySelector(".form__background").addEventListener("click", () => {
+        closeForm()
+      });
       page.logoWhiteLetter.forEach((el) => {
         el.style.fill = "#535659";
       });
@@ -234,15 +261,19 @@ page.callFormButton.forEach((button) =>
         opacity: 1,
         complete: () => {
           page.formContainer.style.pointerEvents = "initial";
-          page.navigation.style.backgroundColor = "rgba(255,255,255, 0.7)";
+          document.querySelector(".navigation__scroll-bar-track").style.opacity = window.offsetTop>0?1:0;
+          page.navigation.style.backgroundColor = window.innerWidth > 1300 ? "transparent" : "rgba(255,255,255, 0.7)";
           page.logoWhiteLetter.forEach((el) => {
             el.style.fill = "#535659";
           });
           page.headerBackground.style.pointerEvent = "none";
-          page.header.remove();
-          window.removeEventListener("wheel", scroll);
-          window.removeEventListener("touchmove", scroll);
-          window.removeEventListener("scroll", scroll);
+          if (!window.innerWidth > 500) {
+            page.header.remove();
+            window.removeEventListener("wheel", scroll);
+            window.removeEventListener("touchmove", scroll);
+            window.removeEventListener("scroll", scroll);
+
+          }
 
         }
       })
@@ -295,7 +326,8 @@ page.form.addEventListener("submit", (e) => {
         })
       succass.finished
         .then(() => {
-          page.navigation.style.backgroundColor = "rgba(255,255,255, 0.7)";
+          document.querySelector(".navigation__scroll-bar-track").style.opacity = 1;
+          page.navigation.style.backgroundColor = window.innerWidth > 1300 ? "transparent" : "rgba(255,255,255, 0.7)";
           page.logoWhiteLetter.forEach((el) => {
             el.style.fill = "#535659";
           });
@@ -323,3 +355,15 @@ document.querySelectorAll("input").forEach(el => {
     })
   }
 })
+
+
+const scrollBar = () => {
+  const precentOfDocumentScroll = (((window.scrollY + window.innerHeight) / document.body.offsetHeight) * 100 | 0);
+  const thumbSize = page.scrollBarTrack.firstElementChild.offsetHeight;
+  const heightOfScrollTrack = page.scrollBarTrack.offsetHeight - thumbSize;
+  const scrollThumbOffsetTop = (heightOfScrollTrack * (precentOfDocumentScroll / 100));
+
+  page.scrollBarTrack.firstElementChild.style.transform = `translateY(${scrollThumbOffsetTop}px)`;
+}
+
+window.addEventListener("scroll", scrollBar)
