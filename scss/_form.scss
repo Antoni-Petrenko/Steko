@@ -117,7 +117,8 @@
         left: calc(50% - 414px / 2);
         background-color: white;
         padding-top: 60px;
-        overflow: auto;
+        overflow-x: hidden;
+        overflow-y: auto;
         &__background {
             background-color: rgba(0, 0, 0, 0.2);
         }
@@ -138,6 +139,9 @@
         }
         &__heading.heading {
             font-size: 28px;
+            & br{
+                display: none;
+            }
         }
         &__paragraph.paragraph {
             padding: 64px 0 53px 0;
@@ -153,6 +157,7 @@
         &__SVG--right {
             display: none;
             &--desktop{
+                transform: rotate(180deg);
                 display: block
             }
         }
@@ -205,7 +210,9 @@
 
 @include respond(big-screen){
     .form{
-        
+        &__paragraph.paragraph {
+            font-size: 25xp;
+        }
         &>form {
             input{
                 &:nth-of-type(1){
