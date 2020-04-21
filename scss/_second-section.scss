@@ -75,6 +75,7 @@
     &__content-box {
       width: 51%;
       padding-top: 20%;
+      margin-left: 41%;
     }
     &__clone {
       &__SVG {
@@ -128,6 +129,13 @@
 
 @include respond(big-screen){
   .second-section{
+    &__clone {
+      &__SVG {
+        width: 13.7%;
+        height: 88.7vh;
+        left: 16.5%;
+        top: -4vh;
+      }}
     &__heading.heading{
       font-size: 97px;
       & span:nth-of-type(2){
@@ -139,6 +147,7 @@
     }
     &__paragraph.paragraph{
       font-size: 25px;
+      line-height: 40px;
     }
   }
 }
