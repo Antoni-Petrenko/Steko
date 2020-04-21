@@ -77,8 +77,8 @@ window.addEventListener('load',()=>{})
             anime
                 .timeline({
                     targets: headerBackground,
-                    delay: 500,
-                    duration: 500,
+                    
+                    duration: 300,
                     endDelay: 400,
                     easing: "easeInOutSine",
                 })
@@ -86,6 +86,7 @@ window.addEventListener('load',()=>{})
                     opacity: [0, 1],
                 })
                 .add({
+                    delay:150,
                     targets: header,
                     opacity: 0,
                 })
@@ -98,7 +99,7 @@ window.addEventListener('load',()=>{})
                             el.style.fill = "#535659";
                         });
                         headerBackground.style.pointerEvent = "none";
-                        header.remove();
+                        // header.remove();
                         window.removeEventListener("wheel", scroll);
                         window.removeEventListener("touchmove", scroll);
                         window.removeEventListener("scroll", scroll);
@@ -264,7 +265,7 @@ window.addEventListener('load',()=>{})
                         });
                         page.headerBackground.style.pointerEvent = "none";
                         if (!window.innerWidth > 500) {
-                            page.header.remove();
+                            // page.header.remove();
                             window.removeEventListener("wheel", scroll);
                             window.removeEventListener("touchmove", scroll);
                             window.removeEventListener("scroll", scroll);
