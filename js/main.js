@@ -1,5 +1,5 @@
+
  const scrollParallax = element => {
-     console.log(element)
     if (((this.scrollY / this.innerHeight) * 100 | 0) < 59) {
         let translateY = ((this.scrollY / this.innerHeight) * 100 | 0) / 4;
         img.style.transform = `translate(-50%, -${translateY%15}%)`;
@@ -85,113 +85,7 @@ window.onload = () => {
         
     })
 
-//     addObserver(
-//         document.querySelector('.firstSection'),
-//         () => {
-//             anime({
-//                 targets: '.firstSection__img>img',
-//                 translateY: ['150px', "0px"],
-//                 opacity: 1,
-//                 easing: 'easeInOutQuad',
-//                 duration: 1500
-//             })
-//             anime({
-//                 targets: ".firstSection > .heading",
-//                 translateY: ['100px', "0px"],
-//                 opacity: 1,
-//                 easing: 'easeInOutQuad',
-//                 duration: 1500,
-//                 delay: 500
-//             })
-//             anime({
-//                 targets: '.firstSection > .paragraph',
-//                 translateY: ['150px', "0px"],
-//                 opacity: 1,
-//                 easing: 'easeInOutQuad',
-//                 duration: 1500,
-//                 delay: 500,
-                
-//             })
-//         },
-//         true
-//     );
 
-//     addObserver(
-//         document.querySelector('.secSection'),
-//         () => {
-//             anime.timeline({
-//                 targets: ".secSection__rect rect",
-//                 easing: 'easeOutQuint',
-//                 duration: 700
-//             }).add({
-//                 width: "100%"
-//             }).add({
-//                 height: "100%"
-//             }).add({
-//                 targets:".secSection h2",
-//                 translateX:["-5%","0%"],
-//                 opacity:1,
-//                 duration: 1500
-//             })
-
-//             anime({
-//                 targets:".content-box  .paragraph",
-//                 easing: 'easeOutQuint',
-//                 translateY:["-5%","0%"],
-//                 opacity:1,
-//                 delay:1500,
-//                 duration:1500
-//             })
-//             anime({
-//                 targets:".secSection div picture",
-//                 easing: 'easeOutQuint',
-//                 opacity:1,
-//                 delay:1500,
-//                 duration:1500
-//             })
-//         },
-//         true
-//     );
-
-    
-//     addObserver(
-//         document.querySelector('.thirdSection'),
-//         () => {
-//             anime.timeline({
-//                 targets: ".thirdSection__rect rect",
-//                 easing: 'easeOutQuint',
-//                 duration: 700
-//             }).add({
-//                 width: "100%"
-//             }).add({
-//                 height: "100%"
-//             }).add({
-//                 targets:".thirdSection h2",
-//                 translateX:["-5%","0%"],
-//                 opacity:1,
-//                 duration: 1500
-//             })
-
-//             anime({
-//                 targets:".content-box  .paragraph",
-//                 easing: 'easeOutQuint',
-//                 translateY:["-5%","0%"],
-//                 opacity:1,
-//                 delay:1500,
-//                 duration:1500
-//             })
-//             anime({
-//                 targets:".content-box  picture",
-//                 easing: 'easeOutQuint',
-//                 translateY:"-65%",
-//                 translateX:["60%","0%"],
-//                 opacity:1,
-//                 delay:1500,
-//                 duration:1500
-//             })
-//         },
-//         true
-//     );
 }
 
 
@@ -205,12 +99,3 @@ window.onload = () => {
 
 
 
-
-
-
-// window.onload = () => {
-//     addObserver(targetElementForObserve[0], 0.5, {
-//         targets: document.querySelector('.navigation'),
-//     })
-
-// }
