@@ -16,44 +16,36 @@
 
 <body>
 
-  <div class="form off">
-    <img src="./img/mobile/icons/formButton.svg" class="form__close-button" alt="close button">
-    <div>
-      <h2 class="form__heading heading">
-        Зв'язатися
-        <br/> з нами
-        <img class="form__SVG--right" src="./img/mobile/imgs/SVG__path/form_section/Group 244.svg" alt="line">
-        <img class="form__SVG--right--desktop" src="./img/desctop-laptop/img/SVG/Group294.svg" alt="line">
 
-      </h2>
-      <p class="form__paragraph paragraph">
-        Ми хотіли б почути і допомогти вам з будь-яким конкретним питанням, яке у вас може бути. Зв'яжіться з нами і давайте робити
-        затишок разом!
-      </p>
+
+  <!--modal form-->
+  <div class="form-wrapper show">
+
+    <div class="form-container">
+      <div class="form-container-heading">
+        <h2>Зв'язатися
+          <br> з нами</h2>
+      </div>
+      <div class="form-container-paragraph">
+        <p class="paragraph">Ми хотіли б почути і допомогти вам з будь-яким конкретним питанням, яке у вас може бути. Зв'яжіться з нами і давайте
+          робити затишок разом!</p>
+      </div>
+      <form id="form">
+        <input type="text" name="leed_name" placeholder="Ім'я" validationMessage="Непоправни!" required/>
+        <input type="email" name="leed_email" placeholder="E-mail" required/>
+        <input  name="leed_phone" type="tel" pattern="\+38\(\d{3}\)\d{3}-\d{2}-\d{2}"
+          placeholder="+38(___)___-__-__" maxlength="17" required>
+        <select name="leed_region_id"></select>
+      </form>
+      <button form="form" type="submit">Відправити</button>
     </div>
 
-    <form id="form">
-      <input class="paragraph" name="name" type="text" placeholder="Ім'я" required>
-      <input class="paragraph" name="surname" type="text" placeholder="Прізвище">
-      <input class="paragraph" name="e-mail" type="email" placeholder="e-mail" required>
-      <button type="submit" class="form__button btn">
-        <img class="form__SVG--left" src="./img/mobile/imgs/SVG__path/form_section/Group 361.svg" alt=""> Замовити
-        <img class="form__SVG--left--desktop" src="./img/desctop-laptop/img/SVG/Group293.svg" alt="line">
-      </button>
-      <div class="svg-box">
-        <svg class="circular green-stroke">
-          <circle class="path" cx="50%" cy="50%" r="50" fill="none" stroke-width="5" stroke-miterlimit="10" />
-        </svg>
-        <svg class="checkmark green-stroke">
-          <g transform="matrix(0.79961,8.65821e-32,8.39584e-32,0.79961,-489.57,-205.679)">
-            <path class="checkmark__check" fill="none" d="M616.306,283.025L634.087,300.805L673.361,261.53" />
-          </g>
-        </svg>
-      </div>
-    </form>
-
   </div>
-  <div class="form__background"></div>
+  <!--modal form-->
+
+
+
+
   <div class="preloader">
     <div class="preloader__background">
     </div>
@@ -319,9 +311,9 @@
       <div class="footer__image-box"></div>
     </section>
   </main>
-  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
-    crossorigin="anonymous"></script>
+  <script src="./js/jquery-3.5.1.min.js"></script>
   <script src="./js/jquery.easeScroll.js"></script>
+  <script src="./js/jmask.js"></script>
   <script src="./js/anime.min.js"></script>
   <script src="./js/rellax.min.js"></script>
   <script src="./js/script.js"></script>
