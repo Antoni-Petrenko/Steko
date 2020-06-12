@@ -40,36 +40,17 @@ const page = {
     ],
     isScrollAnimationON: true,
     callFormButton: document.querySelectorAll('[id$="__button"]'),
-    formContainer: document.querySelector(".form"),
+    formContainer: document.querySelector(".form-wrapper"),
     form: document.querySelector("#form"),
     scrollBarTrack: document.querySelector(".navigation__scroll-bar-track")
 };
 
 window.onbeforeunload = () => window.scrollTo(0, 0);
 
-const closeForm = () => {
-    page.formContainer.classList.add("off");
-    const succass = anime
-        .timeline({
-            easing: "easeOutExpo",
-            duration: 500,
-        }).add({
-            targets: page.formContainer,
-            opacity: 0,
-        })
-    succass.finished
-        .then(() => {
-            page.formContainer.style.pointerEvents = "none";
-            anime({
-                targets: document.querySelector(".form__background"),
-                scale: 1,
-                duration: 1000
-            })
-        });
-}
+
 page.navButton.addEventListener("click", () => {
-    if (!page.formContainer.classList.contains("off")) {
-        closeForm();
+    if (page.formContainer.classList.contains("show")) {
+        page.formContainer.classList.toggle("show");
     } else if (window.pageYOffset !== 0) {
         window.scrollTo({
             top: 0,
@@ -250,46 +231,12 @@ window.addEventListener("DOMContentLoaded", () => {
 
 page.callFormButton.forEach((button) =>
     button.addEventListener("click", () => {
-        if (page.formContainer.classList.contains("off")) {
-            page.formContainer.classList.toggle("off");
-            page.form.parentElement.querySelector('.form__close-button').addEventListener("click", () => {
-                closeForm()
-            });
-            document.querySelector(".form__background").addEventListener("click", () => {
-                closeForm()
-            });
-            page.logoWhiteLetter.forEach((el) => {
-                el.style.fill = "#535659";
-            });
-            const formAnimation = anime.timeline({
-                easing: "easeOutExpo",
-                duration: 400,
-            }).add({
-                targets: document.querySelector(".form__background"),
-                scale: 50
-            }).add({
-                targets: page.formContainer,
-                translateX: 0,
-                opacity: 1,
-                complete: () => {
-                    page.formContainer.style.pointerEvents = "initial";
-                    document.querySelector(".navigation__scroll-bar-track").style.opacity = window.offsetTop > 0 ? 1 : 0;
-                    page.navigation.style.backgroundColor = window.innerWidth > 1300 ? "transparent" : "rgba(255,255,255, 0.7)";
-                    page.logoWhiteLetter.forEach((el) => {
-                        el.style.fill = "#535659";
-                    });
-                    page.headerBackground.style.pointerEvent = "none";
-                    if (!window.innerWidth > 500) {
-                        // page.header.remove();
-                        window.removeEventListener("wheel", scroll);
-                        window.removeEventListener("touchmove", scroll);
-                        window.removeEventListener("scroll", scroll);
+        page.formContainer.classList.add("show")
+                  
 
-                    }
-
-                }
-            })
-        }
+                
+        
+      
     })
 );
 
@@ -302,39 +249,80 @@ $("input[type=tel]").mask("+38(999)999-99-99", {
     }
 })
 
+
+
+
 page.form.addEventListener("submit", (e) => {
     e.preventDefault();
-  
-    const {leed_name,leed_phone,leed_region_id}=e.target.children;
+    const inputs = e.target.querySelectorAll("[name^=leed]");
+    const [leed_name, leed_email, leed_phone, leed_region_id] = inputs;
 
-    
-    
+    inputs.forEach(input => {
+        input.parentElement.classList.remove('error');
+        input.nextElementSibling.innerText = '';
+    })
 
-    const invalidChars = leed_name.value.match(/[^(А-яA-z 'ієї)]/g);
-    const isInvalidPhonNumber= leed_phone.value.replace(/\D/g,'').length<10;
-    const isRegionSelected=leed_region_id.value === "not_set";
+    const validity = {
+        invalidChars: leed_name.value.match(/[^(А-яA-z 'ієї)]/g),
+        isInvalidPhonNumber: leed_phone.value.replace(/\D/g, '').length < 10,
+        isRegionSelected: leed_region_id.value === "not_set"
+    }
 
 
-    console.log(invalidChars)
 
-    if ( invalidChars ) {
-        leed_name.setCustomValidity(`Ім'я не може містити ${invalidChars.toString()}`);
-        leed_name.reportValidity();
-        console.log(invalidChars)
-    } else if (isRegionSelected) {
-        leed_name.setCustomValidity("");
-        leed_region_id.setCustomValidity(`Оберіть будьласка місто`);
-        leed_region_id.reportValidity();
-        console.log(invalidChars)
+    if (validity.invalidChars) {
+        leed_name.nextElementSibling.innerText = `ім'я не може містити ${validity.invalidChars.join(", ")}`;
+        leed_name.parentElement.classList.add("error");
+
+    } else if (validity.isInvalidPhonNumber) {
+
+        leed_phone.nextElementSibling.innerText = `невірний номер`;
+        leed_phone.parentElement.classList.add("error");
+
+    } else if (validity.isRegionSelected) {
+
+        leed_region_id.nextElementSibling.innerText = `Оберіть місто`;
+        leed_region_id.parentElement.classList.add("error");
+
     } else {
-        console.log(invalidChars)
-        const data = [...document.querySelectorAll('[name^=leed]')].reduce((obj, curInp) => {
+
+        const formData = [...document.querySelectorAll('[name^=leed]')].reduce((obj, curInp) => {
             obj[curInp.name] = curInp.value;
             return obj
         }, {});
-        console.log(data)
+        const partnerData = partner.get_all_data();
+        const data = Object.assign(formData, partnerData);
+        setTimeout(()=>{
+            document.querySelector(".form-wrapper").classList.remove("show")
+            setTimeout(()=>{ document.querySelector(".message-wrapper").classList.add("show") },500)
+        },2000)
+        // $.ajax({
+        //     url: "https://b2c.steko.com.ua/api/takedata",
+        //     method: 'POST',
+        //     data: data,
+        //     success: function (data) {
+                
+
+        //     }
+        // });
     }
-    
+    ok.addEventListener("click",()=>{
+        document.querySelector(".message-wrapper").classList.remove("show")
+
+    })
+
+
+
+
+
+
+
+
+
+
+
+
+
 });
 
 

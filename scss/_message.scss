@@ -1,0 +1,169 @@
+.message {
+    &-wrapper {
+        position: fixed;
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        overflow-y: auto;
+        background-color: rgba(0, 0, 0, .5);
+        z-index: 1000;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity .5s linear;
+    }
+   
+    &-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 50px 33px;
+        max-width: 414px;
+        transform: translateY(-50px);
+        transition: background-color .5s ease-in-out, transform .2s ease-in;
+        background-color: white;
+        &-heading {
+            margin-bottom: 29px;
+            position: relative;
+            h2 {
+                font-size: 35px;
+                line-height: 1.225em;
+                font-family: "Montserrat", sans-serif;
+            }
+            
+        }
+        &-paragraph {
+            margin-bottom: 36px;
+            p {
+                font-size: 16px;
+            }
+        }
+        &-button {
+            position: relative;
+            text-align: center;
+            button {
+                padding: 8px 41px;
+            }
+           
+        }
+    }
+}
+
+
+.show.message {
+    &-wrapper {
+        opacity: 1;
+        pointer-events: initial;
+    }
+}
+.show.message-wrapper .message-container {
+    transform: translateY(0);
+}
+
+
+$circle-length: 151px;
+$check-length: 36px;
+
+
+
+
+
+@keyframes scaleAnimation {
+  0% {
+    opacity: 0;
+    transform: scale(1.5);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes drawCircle {
+  0% {
+    stroke-dashoffset: $circle-length;
+  }
+  10%{
+    opacity: 1;  
+    stroke-dashoffset: $circle-length;
+  }
+  100% {
+    opacity: 1;  
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes drawCheck {
+  0% {
+    stroke-dashoffset: $check-length;
+  }
+  10%{
+    opacity: 1;
+    stroke-dashoffset: $check-length;
+  }
+  100% {
+    opacity: 1;
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+#successAnimationCircle {
+    opacity: 0;
+  stroke-dasharray: $circle-length $circle-length;
+  stroke: rgb(17, 168, 122);
+}
+
+#successAnimationCheck {
+    opacity: 0;
+  stroke-dasharray: $check-length $check-length;
+  stroke: rgb(17, 168, 122);
+}
+
+#successAnimationResult {
+  fill: rgb(17, 168, 122);
+  opacity: 0;
+}
+
+
+
+
+.message-wrapper.show #successAnimation {
+  animation: 1s ease-out 0s 1 both scaleAnimation;
+  
+  #successAnimationCircle {
+    animation: 1s cubic-bezier(0.77, 0, 0.175, 1) 0s 1 both drawCircle,
+               0.3s linear 0.9s 1 both fadeOut;
+  }
+  
+  #successAnimationCheck {
+    animation: 1s cubic-bezier(0.77, 0, 0.175, 1) 0s 1 both drawCheck,
+               0.3s linear 0.9s 1 both fadeOut;
+  }
+  
+  #successAnimationResult {
+    animation: 0.3s linear 0.9s both fadeIn;
+  }
+}
