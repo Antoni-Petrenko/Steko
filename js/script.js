@@ -99,7 +99,7 @@ const scroll = (e) => {
                     window.removeEventListener("wheel", scroll);
                     window.removeEventListener("touchmove", scroll);
                     window.removeEventListener("scroll", scroll);
-                     window.navigator.vibrate([2000,500,2000])
+                    
                     document.querySelector(".navigation__scroll-bar-track").style.opacity = 1;
                     setTimeout(() => $('html').easeScroll({
                         frameRate: 1,
@@ -233,11 +233,7 @@ window.addEventListener("DOMContentLoaded", () => {
 page.callFormButton.forEach((button) =>
     button.addEventListener("click", () => {
         page.formContainer.classList.add("show")
-                  
-
-                
-        
-      
+         window.navigator.vibrate([2000,500,2000])
     })
 );
 
